@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Class RouteServiceProvider.
+ *
+ * @package App\Providers
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/';
+    public const HOME = 'dashboard:home';
 
     /**
      * The controller namespace for the application.
@@ -26,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+    protected $namespace = 'App\\Http\\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -44,8 +49,20 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->namespace($this->namespace)
+                ->name('web:')
+                ->namespace($this->namespace. '\Web')
                 ->group(base_path('routes/web.php'));
+
+            Route::prefix('theme')
+                ->middleware('web')
+                ->namespace($this->namespace.'\Themes')
+                ->group(base_path('routes/theme.php'));
+
+            Route::prefix('dashboard')
+                ->middleware('web')
+                ->namespace($this->namespace.'\Dashboard')
+                ->name('dashboard:')
+                ->group(base_path('routes/dashboard.php'));
         });
     }
 
