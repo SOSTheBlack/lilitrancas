@@ -2,7 +2,7 @@
 @extends('layouts.fullLayoutMaster')
 
 {{-- page title --}}
-@section('title','User Forgot Password')
+@section('title','Recuperar sua senha')
 
 {{-- page style --}}
 @section('page-style')
@@ -29,8 +29,8 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <h5 class="ml-4">Forgot Password</h5>
-          <p class="ml-4">You can reset your password</p>
+          <h5 class="ml-4">{{ __('Esqueceu a senha?') }}</h5>
+          <p class="ml-4">{{ __('Você pode redefinir sua senha ') }}</p>
         </div>
       </div>
       <div class="row">
@@ -38,7 +38,7 @@
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}" autocomplete="email" autofocus>
-          <label for="email" class="center-align">Email</label>
+          <label for="email" class="center-align">{{ __('Email') }}</label>
           @error('email')
           <small class="red-text ml-7" role="alert">
             <strong>{{ $message }}</strong>
@@ -49,16 +49,15 @@
       <div class="row">
         <div class="input-field col s12">
           <button type="submit"
-            class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12 mb-1">Reset
-            Password</button>
+            class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12 mb-1">{{ __('Redefinir senha') }}</button>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="{{ route('login')}}">Login</a></p>
+          <p class="margin medium-small"><a href="{{ route('login')}}">{{ __('Entrar') }}</a></p>
         </div>
         <div class="input-field col s6 m6 l6">
-          <p class="margin right-align medium-small"><a href="{{route('register')}}">Register</a></p>
+          <p class="margin right-align medium-small"><a href="{{route('register')}}">{{ __('Registrar-se') }}</a></p>
         </div>
       </div>
     </form>

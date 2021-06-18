@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
  *
  * @package App\Http\Controllers\Dashboard
  */
-class HomeController extends DashboardController
+class HomeController extends BaseController
 {
     /**
      * Handle the incoming request.

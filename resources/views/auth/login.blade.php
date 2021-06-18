@@ -17,7 +17,7 @@
       @csrf
       <div class="row">
         <div class="input-field col s12">
-          <h5 class="ml-4">{{ __('Sign in') }}</h5>
+          <h5 class="ml-4">{{ __('Entrar') }}</h5>
         </div>
       </div>
       <div class="row margin">
@@ -25,7 +25,7 @@
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}"  autocomplete="email" autofocus>
-          <label for="email" class="center-align">{{ __('Username') }}</label>
+          <label for="email" class="center-align">{{ __('Email') }}</label>
           @error('email')
           <small class="red-text ml-7" >
             {{ $message }}
@@ -38,7 +38,7 @@
           <i class="material-icons prefix pt-2">lock_outline</i>
           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
             name="password"  autocomplete="current-password">
-          <label for="password">{{ __('password') }}</label>
+          <label for="password">{{ __('Senha') }}</label>
           @error('password')
           <small class="red-text ml-7" >
             {{ $message }}
@@ -51,7 +51,7 @@
           <p>
             <label>
               <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-              <span>Remember Me</span>
+              <span>{{ __('Manter-me conectado!') }}</span>
             </label>
           </p>
         </div>
@@ -65,11 +65,11 @@
       </div>
       <div class="row">
         <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="{{ route('register') }}">Register Now!</a></p>
+          <p class="margin medium-small"><a href="{{ route('register') }}">{{ __('Registrar-se') }}</a></p>
         </div>
         <div class="input-field col s6 m6 l6">
           <p class="margin right-align medium-small">
-            <a href="{{ route('password.request') }}">Forgot password?</a>
+            <a href="{{ route('password.request') }}">{{ __('Perdeu sua senha?') }}</a>
           </p>
         </div>
       </div>

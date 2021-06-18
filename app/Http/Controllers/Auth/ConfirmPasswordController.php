@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\Auth;
+namespace App\Http\Controllers\Auth;
 
 
 use App\Providers\RouteServiceProvider;
@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\ConfirmsPasswords;
 /**
  * Class ConfirmPasswordController.
  *
- * @package App\Http\Controllers\Dashboard\Auth
+ * @package App\Http\Controllers\Auth
  */
 class ConfirmPasswordController extends AuthController
 {
@@ -40,8 +40,6 @@ class ConfirmPasswordController extends AuthController
      */
     public function __construct()
     {
-        parent::__construct();
-
         $this->middleware('auth');
     }
 }

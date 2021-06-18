@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = 'dashboard:home';
+    public const HOME = 'home';
 
     /**
      * The controller namespace for the application.
@@ -48,21 +48,14 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
+//            Route::prefix('theme')
+//                ->middleware('web')
+//                ->namespace($this->namespace.'\Themes')
+//                ->group(base_path('routes/theme.php'));
+
             Route::middleware('web')
-                ->name('web:')
-                ->namespace($this->namespace. '\Web')
+                ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
-
-            Route::prefix('theme')
-                ->middleware('web')
-                ->namespace($this->namespace.'\Themes')
-                ->group(base_path('routes/theme.php'));
-
-            Route::prefix('dashboard')
-                ->middleware('web')
-                ->namespace($this->namespace.'\Dashboard')
-                ->name('dashboard:')
-                ->group(base_path('routes/dashboard.php'));
         });
     }
 
@@ -71,7 +64,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function configureRateLimiting()
+    protected function configureRateLimiting(): void
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
