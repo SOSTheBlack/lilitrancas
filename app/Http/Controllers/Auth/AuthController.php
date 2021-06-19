@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 
 /**
@@ -10,7 +10,7 @@ use App\Providers\RouteServiceProvider;
  *
  * @package App\Http\Controllers\Auth
  */
-abstract class AuthController extends BaseController
+abstract class AuthController extends Controller
 {
     /**
      * Where to redirect users after registration.

@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
  *
  * @package App\Http\Controllers\Dashboard
  */
-class HomeController extends BaseController
+class HomeController extends Controller
 {
     /**
      * Handle the incoming request.
