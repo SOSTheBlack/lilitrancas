@@ -6,11 +6,11 @@
             "i18n": "Configurações",
             "class": "collapsible-header waves-effect waves-cyan",
             "slug": "dashboard",
-            "icon": "settings_input_svideo",
+            "icon": "settings",
             "tagcustom": "badge pill orange float-right mr-10",
             "submenu": [
                 {
-                    "url": "/settings/enterprises",
+                    "url": "enterprises.index",
                     "name": "Empresas",
                     "i18n": "Enterprises",
                     "slug": "settings.enterprises"

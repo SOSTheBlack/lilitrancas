@@ -202,7 +202,7 @@
             <a @if(isset($menu->submenu)){{'class=dropdown-menu'}} @endif href="{{$menu->url}}" data-target="{{$menu->activate}}">
               <i class="material-icons">{{$menu->icon}}</i>
               <span>
-                <span class="dropdown-title">{{ __('locale.'.$menu->name)}}</span>
+                <span class="dropdown-title">{{ __($menu->name)}}</span>
                 @isset($menu->submenu)
                 <i class="material-icons right">keyboard_arrow_down</i>
                 @endisset

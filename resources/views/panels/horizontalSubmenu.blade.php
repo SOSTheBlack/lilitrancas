@@ -11,7 +11,7 @@
       data-menu="{{(isset($submenu->submenu)) ? 'dropdown-submenu' : ''}}">
       <a href="{{$submenu->url}}" class="{{(isset($submenu->submenu)) ? 'dropdownSub-menu' : ''}}"
         data-target="{{(isset($submenu->submenu)) ? $submenu->activate : ''}}">
-        <span>{{ __('locale.'.$submenu->name)}}</span>
+        <span>{{ __($submenu->name)}}</span>
         @if(isset($submenu->submenu))
          <i class="material-icons right">chevron_right</i>
         @endif
