@@ -20,6 +20,7 @@
 
 {{-- page content --}}
 @section('content')
+
 <div class="section section-data-tables">
   <div class="card">
     <div class="card-content">

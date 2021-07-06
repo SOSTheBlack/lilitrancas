@@ -10,8 +10,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('settings')->namespace('Settings')->group(function () {
         Route::prefix('enterprises')->namespace('Enterprises')->group(function () {
-            Route::get('/new')->name('enterprises.new')->uses('EnterpriseNewController');
-            Route::get('/')->name('enterprises.index')->uses('EnterpriseIndexController');
+            Route::get('/new')->name('settings.enterprises.new')->uses('EnterpriseNewController');
+            Route::get('/')->name('settings.enterprises.index')->uses('EnterpriseIndexController');
+            Route::get('/{enterprise}')->name('settings.enterprises.view')->uses('EnterpriseViewController');
+            Route::get('/{enterprise}/edit')->name('settings.enterprises.edit')->uses('EnterpriseEditController');
         });
     });
 });

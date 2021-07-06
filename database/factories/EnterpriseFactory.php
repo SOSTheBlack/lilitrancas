@@ -29,6 +29,7 @@ class EnterpriseFactory extends Factory
         $document_type = $this->faker->randomKey(Enterprise::DOCUMENT_TYPE);
 
         return [
+            'active' => $this->faker->boolean(),
             'name' => $this->faker->company(),
             'logo' => $this->faker->imageUrl(),
             'description' => $this->faker->text(),

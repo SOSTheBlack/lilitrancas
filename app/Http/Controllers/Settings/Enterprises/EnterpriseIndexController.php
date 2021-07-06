@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Settings\Enterprises;
 
-use App\DataTables\UsersDataTable;
-use App\Http\Requests\Settings\Enterprises\EnterpriseNewRequest;
+use App\DataTables\EnterpriseDataTable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 /**
  * Class EnterpriseIndexController.
@@ -18,10 +18,11 @@ class EnterpriseIndexController extends EnterpriseController
      * Handle the incoming request.
      *
      * @param  Request  $request
+     * @param  EnterpriseDataTable  $enterpriseDataTable
      *
-     * @return Response
+     * @return View|JsonResponse
      */
-    public function __invoke(Request $request, UsersDataTable $usersDataTable)
+    public function __invoke(Request $request, EnterpriseDataTable $enterpriseDataTable): View|JsonResponse
     {
         $breadcrumbs = [
             ['link' => "modern", 'name' => __('Home')], ['link' => "javascript:void(0)", 'name' => __('Configurações')], ['name' => __("Empresas")]
@@ -29,6 +30,6 @@ class EnterpriseIndexController extends EnterpriseController
 
         $pageConfigs = ['pageHeader' => true, 'isFabButton' => true];
 
-        return $usersDataTable->render('pages.enterprises.index', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
+        return $enterpriseDataTable->render('pages.settings.enterprises.index', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
     }
 }

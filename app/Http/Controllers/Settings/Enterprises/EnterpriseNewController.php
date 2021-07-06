@@ -28,6 +28,6 @@ class EnterpriseNewController extends EnterpriseController
 
         $pageConfigs = ['pageHeader' => true, 'isFabButton' => true];
 
-        return view('pages.enterprises.new', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
+        return view('pages.settings.enterprises.new', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
     }
 }

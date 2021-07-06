@@ -1,0 +1,1 @@
+<img src="{{ $logo }}" width="60" class="img-rounded"/>
