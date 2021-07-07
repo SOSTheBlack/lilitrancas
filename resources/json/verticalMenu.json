@@ -3,6 +3,7 @@
         {
             "url": "javascript:void(0)",
             "name": "Configurações",
+            "permission": "enterprise",
             "i18n": "Configurações",
             "class": "collapsible-header waves-effect waves-cyan",
             "slug": "dashboard",
@@ -11,6 +12,7 @@
             "submenu": [
                 {
                     "url": "settings.enterprises.index",
+                    "permission": "enterprise.index",
                     "name": "Empresas",
                     "i18n": "Enterprises",
                     "slug": "settings.enterprises"

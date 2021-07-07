@@ -19,9 +19,9 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Jean C. Garcia',
-            'email' => 'jeancesargarcia@gmail.com',
-        ]);
+//        User::factory()->create([
+//            'name' => 'Jean C. Garcia',
+//            'email' => 'jeancesargarcia@gmail.com',
+//        ]);
     }
 }

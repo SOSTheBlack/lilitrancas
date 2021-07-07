@@ -15,7 +15,7 @@ use Illuminate\Support\Carbon;
  *
  * @property int $id
  * @property int $user_id
- * @property int $active
+ * @property bool $active
  * @property string $name
  * @property string $logo
  * @property string $description
@@ -25,8 +25,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read User $user
- * @method static EnterpriseFactory factory(...$parameters)
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\EnterpriseFactory factory(...$parameters)
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
  * @method static Builder|Enterprise query()
