@@ -18,7 +18,8 @@ class EnterpriseNewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->check();
+        dd($this->request->get('enterprise'));
+        return auth()->check() && auth()->user()->can('enterprise.view.');
     }
 
     /**

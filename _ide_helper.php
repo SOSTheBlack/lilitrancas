@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.49.1.
+ * Generated for Laravel 8.50.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14302,6 +14302,17 @@
                         $instance->replacer($rule, $replacer);
         }
                     /**
+         * Indicate that unvalidated array keys should be excluded, even if the parent array was validated.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function excludeUnvalidatedArrayKeys()
+        {
+                        /** @var \Illuminate\Validation\Factory $instance */
+                        $instance->excludeUnvalidatedArrayKeys();
+        }
+                    /**
          * Set the Validator instance resolver.
          *
          * @param \Closure $resolver
@@ -17680,6 +17691,18 @@
                     /**
          * 
          *
+         * @param string $classname
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertExportedInRaw($classname, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertExportedInRaw($classname, $callback);
+        }
+                    /**
+         * 
+         *
          * @param string $filePath
          * @param string|callable|null $disk
          * @param callable|null $callback
@@ -17689,6 +17712,232 @@
         {
                         /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
                         return $instance->assertImported($filePath, $disk, $callback);
+        }
+         
+    }
+     
+}
+
+    namespace Sentry\Laravel { 
+            /**
+     * 
+     *
+     */ 
+        class Facade {
+                    /**
+         * Gets the client bound to the top of the stack.
+         *
+         * @static 
+         */ 
+        public static function getClient()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->getClient();
+        }
+                    /**
+         * Gets the ID of the last captured event.
+         *
+         * @static 
+         */ 
+        public static function getLastEventId()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->getLastEventId();
+        }
+                    /**
+         * Creates a new scope to store context information that will be layered on
+         * top of the current one. It is isolated, i.e. all breadcrumbs and context
+         * information added to this scope will be removed once the scope ends. Be
+         * sure to always remove this scope with {@see Hub::popScope} when the
+         * operation finishes or throws.
+         *
+         * @static 
+         */ 
+        public static function pushScope()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->pushScope();
+        }
+                    /**
+         * Removes a previously pushed scope from the stack. This restores the state
+         * before the scope was pushed. All breadcrumbs and context information added
+         * since the last call to {@see Hub::pushScope} are discarded.
+         *
+         * @static 
+         */ 
+        public static function popScope()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->popScope();
+        }
+                    /**
+         * Creates a new scope with and executes the given operation within. The scope
+         * is automatically removed once the operation finishes or throws.
+         *
+         * @param callable $callback The callback to be executed
+         * @static 
+         */ 
+        public static function withScope($callback)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->withScope($callback);
+        }
+                    /**
+         * Calls the given callback passing to it the current scope so that any
+         * operation can be run within its context.
+         *
+         * @param callable $callback The callback to be executed
+         * @static 
+         */ 
+        public static function configureScope($callback)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->configureScope($callback);
+        }
+                    /**
+         * Binds the given client to the current scope.
+         *
+         * @param \Sentry\ClientInterface $client The client
+         * @static 
+         */ 
+        public static function bindClient($client)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->bindClient($client);
+        }
+                    /**
+         * Captures a message event and sends it to Sentry.
+         *
+         * @param string $message The message
+         * @param \Sentry\Severity|null $level The severity level of the message
+         * @param \Sentry\EventHint|null $hint Object that can contain additional information about the event
+         * @static 
+         */ 
+        public static function captureMessage($message, $level = null, $hint = null)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->captureMessage($message, $level, $hint);
+        }
+                    /**
+         * Captures an exception event and sends it to Sentry.
+         *
+         * @param \Throwable $exception The exception
+         * @param \Sentry\EventHint|null $hint Object that can contain additional information about the event
+         * @static 
+         */ 
+        public static function captureException($exception, $hint = null)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->captureException($exception, $hint);
+        }
+                    /**
+         * Captures a new event using the provided data.
+         *
+         * @param \Event $event The event being captured
+         * @param \Sentry\EventHint|null $hint May contain additional information about the event
+         * @static 
+         */ 
+        public static function captureEvent($event, $hint = null)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->captureEvent($event, $hint);
+        }
+                    /**
+         * Captures an event that logs the last occurred error.
+         *
+         * @param \Sentry\EventHint|null $hint Object that can contain additional information about the event
+         * @static 
+         */ 
+        public static function captureLastError($hint = null)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->captureLastError($hint);
+        }
+                    /**
+         * Records a new breadcrumb which will be attached to future events. They
+         * will be added to subsequent events to provide more context on user's
+         * actions prior to an error or crash.
+         *
+         * @param \Sentry\Breadcrumb $breadcrumb The breadcrumb to record
+         * @return bool Whether the breadcrumb was actually added to the current scope
+         * @static 
+         */ 
+        public static function addBreadcrumb($breadcrumb)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->addBreadcrumb($breadcrumb);
+        }
+                    /**
+         * Gets the integration whose FQCN matches the given one if it's available on the current client.
+         *
+         * @param string $className The FQCN of the integration
+         * @psalm-template T of IntegrationInterface
+         * @psalm-param class-string<T> $className
+         * @psalm-return T|null
+         * @static 
+         */ 
+        public static function getIntegration($className)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->getIntegration($className);
+        }
+                    /**
+         * Starts a new `Transaction` and returns it. This is the entry point to manual
+         * tracing instrumentation.
+         * 
+         * A tree structure can be built by adding child spans to the transaction, and
+         * child spans to other spans. To start a new child span within the transaction
+         * or any span, call the respective `startChild()` method.
+         * 
+         * Every child span must be finished before the transaction is finished,
+         * otherwise the unfinished spans are discarded.
+         * 
+         * The transaction must be finished with a call to its `finish()` method, at
+         * which point the transaction with all its finished child spans will be sent to
+         * Sentry.
+         *
+         * @param \Sentry\State\array<string,  mixed> $customSamplingContext Additional context that will be passed to the {@see SamplingContext}
+         * @param \Sentry\Tracing\TransactionContext $context Properties of the new transaction
+         * @param \Sentry\State\array<string,  mixed> $customSamplingContext Additional context that will be passed to the {@see SamplingContext}
+         * @static 
+         */ 
+        public static function startTransaction($context, $customSamplingContext = [])
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->startTransaction($context, $customSamplingContext);
+        }
+                    /**
+         * Returns the transaction that is on the Hub.
+         *
+         * @psalm-suppress MoreSpecificReturnType
+         * @psalm-suppress LessSpecificReturnStatement
+         * @static 
+         */ 
+        public static function getTransaction()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->getTransaction();
+        }
+                    /**
+         * Sets the span on the Hub.
+         *
+         * @param \Sentry\Tracing\Span|null $span The span
+         * @static 
+         */ 
+        public static function setSpan($span)
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->setSpan($span);
+        }
+                    /**
+         * Returns the span that is on the Hub.
+         *
+         * @static 
+         */ 
+        public static function getSpan()
+        {
+                        /** @var \Sentry\State\Hub $instance */
+                        return $instance->getSpan();
         }
          
     }
@@ -18518,7 +18767,6 @@ namespace  {
              * @param string $cursorName
              * @param string|null $cursor
              * @return \Illuminate\Contracts\Pagination\CursorPaginator 
-             * @throws \Illuminate\Pagination\CursorPaginationException
              * @static 
              */ 
             public static function cursorPaginate($perPage = null, $columns = [], $cursorName = 'cursor', $cursor = null)
@@ -20551,7 +20799,7 @@ namespace  {
                 /**
              * Add a descending "order by" clause to the query.
              *
-             * @param string $column
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
@@ -20687,7 +20935,7 @@ namespace  {
                 /**
              * Remove all existing orders and optionally add a new order.
              *
-             * @param string|null $column
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string|null $column
              * @param string $direction
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21312,6 +21560,7 @@ namespace  {
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
             class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+            class Sentry extends \Sentry\Laravel\Facade {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
      
 }

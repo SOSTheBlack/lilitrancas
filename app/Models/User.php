@@ -6,12 +6,16 @@ use Database\Factories\UserFactory;
 use Eloquent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -25,11 +29,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property-read Collection|User[] $enterprises
+ * @property-read int|null $enterprises_count
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
+ * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()
@@ -89,4 +95,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var string
      */
     protected $dateFormat = 'Y-m-d H:i:s';
+
+    public function enterprises(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

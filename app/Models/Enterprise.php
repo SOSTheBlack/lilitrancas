@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -25,7 +26,9 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read \App\Models\User $user
+ * @property-read \App\Models\User $owner
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
  * @method static \Database\Factories\EnterpriseFactory factory(...$parameters)
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
@@ -75,8 +78,14 @@ class Enterprise extends Model
      *
      * @return BelongsTo
      */
-    public function user(): BelongsTo
+    public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

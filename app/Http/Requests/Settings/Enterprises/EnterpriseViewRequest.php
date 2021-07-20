@@ -2,14 +2,18 @@
 
 namespace App\Http\Requests\Settings\Enterprises;
 
+use App\Exceptions\AppException;
+use App\Models\Enterprise;
 use Illuminate\Foundation\Http\FormRequest;
+
+use function user;
 
 /**
  * Class EnterpriseCreateRequest.
  *
  * @package App\Http\Requests\Settings\Enterprises
  */
-class EnterpriseIndexRequest extends FormRequest
+class EnterpriseViewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,8 +22,14 @@ class EnterpriseIndexRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        dd($this->request->get('enterprise'));
-        return auth()->user()->can('enterprise.index');
+        /** @var Enterprise $enterprise */
+        $enterprise = request()->route('enterprise');
+
+        try {
+            return user()->can('settings.enterprise.view.'.$enterprise->id);
+        } catch (AppException $appException) {
+            return false;
+        }
     }
 
     /**
