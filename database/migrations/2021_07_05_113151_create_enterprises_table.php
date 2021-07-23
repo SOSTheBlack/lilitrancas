@@ -24,6 +24,8 @@ class CreateEnterprisesTable extends Migration
             $table->string('name');
             $table->text('logo');
             $table->text('description');
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->text('link_redirect');
             $table->string('document_type');
             $table->bigInteger('document_number');

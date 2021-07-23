@@ -16,4 +16,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/{enterprise}/edit')->name('settings.enterprises.edit')->uses('EnterpriseEditController');
         });
     });
+
+    Route::prefix('users')->namespace('Users')->group(function () {
+        Route::get('/me')->name('users.me')->uses('MeUserController');
+        Route::get('/{user}')->name('users.show')->uses('ShowUserController');
+    });
 });

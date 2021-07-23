@@ -1,24 +1,19 @@
 <?php
 
-namespace App\Http\Requests\Settings\Enterprises;
+namespace App\Http\Requests\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Class EnterpriseCreateRequest.
- *
- * @package App\Http\Requests\Settings\Enterprises
- */
-class EnterpriseIndexRequest extends FormRequest
+class MeUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return $this->user()->can('settings.enterprise.index');
+        return false;
     }
 
     /**
@@ -26,7 +21,7 @@ class EnterpriseIndexRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             //

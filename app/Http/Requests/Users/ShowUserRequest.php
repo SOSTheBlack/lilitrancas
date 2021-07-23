@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Requests\Settings\Enterprises;
+namespace App\Http\Requests\Users;
 
-use App\Models\Enterprise;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class EnterpriseCreateRequest.
+ * Class ShowUserRequest.
  *
- * @package App\Http\Requests\Settings\Enterprises
+ * @package App\Http\Requests\Users
  */
-class EnterpriseViewRequest extends FormRequest
+class ShowUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,10 +19,10 @@ class EnterpriseViewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        /** @var Enterprise $enterprise */
-        $enterprise = request()->route('enterprise');
+        /** @var User $user */
+        $user = request()->route('user');
 
-        return $this->user()->can('settings.enterprise.view.'.$enterprise->id);
+        return $this->user()->can('user.view.'.$user->id) || $user->id === $this->user()->id;
     }
 
     /**

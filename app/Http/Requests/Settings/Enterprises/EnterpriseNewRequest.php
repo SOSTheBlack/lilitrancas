@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Settings\Enterprises;
 
+use App\Models\Enterprise;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
@@ -18,8 +19,10 @@ class EnterpriseNewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        dd($this->request->get('enterprise'));
-        return auth()->check() && auth()->user()->can('enterprise.view.');
+        /** @var Enterprise $enterprise */
+        $enterprise = request()->route('enterprise');
+
+        return $this->user()->can('settings.enterprise.view.'.$enterprise->id);
     }
 
     /**

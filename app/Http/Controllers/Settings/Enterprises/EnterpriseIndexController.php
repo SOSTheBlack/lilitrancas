@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Settings\Enterprises;
 
 use App\DataTables\EnterpriseDataTable;
+use App\Http\Requests\Settings\Enterprises\EnterpriseIndexRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 /**
@@ -15,26 +14,38 @@ use Illuminate\View\View;
  */
 class EnterpriseIndexController extends EnterpriseController
 {
-    public function __construct()
+    /**
+     * @var EnterpriseDataTable
+     */
+    private EnterpriseDataTable $enterpriseDataTable;
+
+    /**
+     * EnterpriseIndexController constructor.
+     *
+     * @param  EnterpriseDataTable  $enterpriseDataTable
+     */
+    public function __construct(EnterpriseDataTable $enterpriseDataTable)
     {
+        $this->enterpriseDataTable = $enterpriseDataTable;
     }
 
     /**
      * Handle the incoming request.
      *
-     * @param  Request  $request
-     * @param  EnterpriseDataTable  $enterpriseDataTable
+     * @param  EnterpriseIndexRequest  $enterpriseIndexRequest
      *
      * @return View|JsonResponse
      */
-    public function __invoke(\App\Http\Requests\Settings\Enterprises\EnterpriseIndexRequest $request, EnterpriseDataTable $enterpriseDataTable): View|JsonResponse
+    public function __invoke(EnterpriseIndexRequest $enterpriseIndexRequest): View|JsonResponse
     {
         $breadcrumbs = [
-            ['link' => "modern", 'name' => __('Home')], ['link' => "javascript:void(0)", 'name' => __('Configurações')], ['name' => __("Empresas")]
+            ['link' => "modern", 'name' => __('Home')],
+            ['link' => "javascript:void(0)", 'name' => __('Configurações')],
+            ['name' => __("Empresas")]
         ];
 
         $pageConfigs = ['pageHeader' => true, 'isFabButton' => true];
 
-        return $enterpriseDataTable->render('pages.settings.enterprises.index', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
+        return $this->enterpriseDataTable->render('pages.settings.enterprises.index', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
     }
 }
