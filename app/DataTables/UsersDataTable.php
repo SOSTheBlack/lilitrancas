@@ -24,7 +24,7 @@ class UsersDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $linkEdit = route('enterprises.new');
+        $linkEdit = route('enterprise.new');
         return datatables()
             ->eloquent($query)
 //            ->setRowId('id')

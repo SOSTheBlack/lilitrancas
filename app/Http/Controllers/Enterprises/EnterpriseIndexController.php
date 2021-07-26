@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Settings\Enterprises;
+namespace App\Http\Controllers\Enterprises;
 
 use App\DataTables\EnterpriseDataTable;
 use App\Http\Requests\Settings\Enterprises\EnterpriseIndexRequest;
@@ -10,7 +10,7 @@ use Illuminate\View\View;
 /**
  * Class EnterpriseIndexController.
  *
- * @package App\Http\Controllers\Settings\Enterprises
+ * @package App\Http\Controllers\Enterprises
  */
 class EnterpriseIndexController extends EnterpriseController
 {
@@ -40,6 +40,6 @@ class EnterpriseIndexController extends EnterpriseController
     {
         $this->setBreadcrumbs();
 
-        return $this->enterpriseDataTable->render('pages.settings.enterprises.index');
+        return $this->enterpriseDataTable->render('pages.enterprises.index');
     }
 }

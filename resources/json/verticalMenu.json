@@ -11,11 +11,11 @@
             "tagcustom": "badge pill orange float-right mr-10",
             "submenu": [
                 {
-                    "url": "settings.enterprises.index",
+                    "url": "enterprise.index",
                     "permission": "enterprise.index",
                     "name": "Empresas",
                     "i18n": "Enterprises",
-                    "slug": "settings.enterprises"
+                    "slug": "enterprise"
                 }
             ]
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Settings\Enterprises;
+namespace App\Http\Controllers\Enterprises;
 
 use App\Helpers\withUser;
 use App\Http\Requests\Settings\Enterprises\EnterpriseViewRequest;
@@ -12,7 +12,7 @@ use function view;
 /**
  * Class EnterpriseViewController.
  *
- * @package App\Http\Controllers\Settings\Enterprises
+ * @package App\Http\Controllers\Enterprises
  */
 class EnterpriseViewController extends EnterpriseController
 {
@@ -30,6 +30,6 @@ class EnterpriseViewController extends EnterpriseController
     {
         $this->setBreadcrumbs($enterprise);
 
-        return view('pages.settings.enterprises.view', ['enterprise' => $enterprise]);
+        return view('pages.enterprises.view', ['enterprise' => $enterprise]);
     }
 }

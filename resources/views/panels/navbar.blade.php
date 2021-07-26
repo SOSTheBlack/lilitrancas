@@ -78,7 +78,7 @@
             <!-- profile-dropdown-->
             <ul class="dropdown-content" id="profile-dropdown">
                 <li>
-                    <a class="grey-text text-darken-1" href="{{ route('users.me') }}">
+                    <a class="grey-text text-darken-1" href="{{ route('user.me') }}">
                         <i class="material-icons">person_outline</i>
                         {{ __('Perfil') }}
                     </a>

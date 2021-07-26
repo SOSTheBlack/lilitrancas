@@ -96,7 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $dateFormat = 'Y-m-d H:i:s';
 
-    public function enterprises(): BelongsToMany
+    public function enterprise(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
