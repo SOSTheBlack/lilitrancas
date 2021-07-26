@@ -17,7 +17,7 @@ class CreateEnterprisesTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('enterprises', function (Blueprint $table) {
+        Schema::create('enterprise', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
             $table->boolean('active');
@@ -41,6 +41,6 @@ class CreateEnterprisesTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enterprises');
+        Schema::dropIfExists('enterprise');
     }
 }

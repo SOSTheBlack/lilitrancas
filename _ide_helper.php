@@ -15534,6 +15534,60 @@
      
 }
 
+    namespace Creativeorange\Gravatar\Facades { 
+            /**
+     * 
+     *
+     * @see \Creativeorange\Gravatar\Gravatar
+     */ 
+        class Gravatar {
+                    /**
+         * Override the default image fallback set in the config.
+         * 
+         * Can either be a public URL to an image or a valid themed image.
+         * For more info, visit http://en.gravatar.com/site/implement/images/#default-image
+         *
+         * @param string $fallback
+         * @return \Creativeorange\Gravatar\Gravatar 
+         * @static 
+         */ 
+        public static function fallback($fallback)
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->fallback($fallback);
+        }
+                    /**
+         * Check if Gravatar has an avatar for the given email address
+         *
+         * @param string $email
+         * @return bool 
+         * @throws InvalidEmailException
+         * @static 
+         */ 
+        public static function exists($email)
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->exists($email);
+        }
+                    /**
+         * Get the gravatar url
+         *
+         * @param string $email
+         * @param string $configGroup
+         * @return string 
+         * @throws InvalidEmailException
+         * @static 
+         */ 
+        public static function get($email, $configGroup = 'default')
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->get($email, $configGroup);
+        }
+         
+    }
+     
+}
+
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -21555,6 +21609,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Helper extends \App\Helpers\Helper {}
             class ShortURL extends \AshAllenDesign\ShortURL\Facades\ShortURL {}
+            class Gravatar extends \Creativeorange\Gravatar\Facades\Gravatar {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
             class Form extends \Collective\Html\FormFacade {}

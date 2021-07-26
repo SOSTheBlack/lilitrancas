@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Settings\Enterprises;
+namespace App\Http\Controllers\Enterprises;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EnterpriseEditController extends Controller
+class EnterpriseEditController extends EnterpriseController
 {
     /**
      * Handle the incoming request.

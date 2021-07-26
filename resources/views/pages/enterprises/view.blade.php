@@ -37,12 +37,12 @@
                     </div>
                 </div>
                 <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                    @can('users.show.'.$enterprise->user_id)
-                        <a href="{{ route('users.show', [$enterprise->user_id]) }}"
+                    @can('user.show.'.$enterprise->user_id)
+                        <a href="{{ route('user.show', [$enterprise->user_id]) }}"
                            class="btn-small btn-light-indigo">{{ __('Administrador') }}</a>
                     @endcan
-                    @can('settings.enterprises.edit.'.$enterprise->id)
-                        <a href="{{ route('settings.enterprises.edit', [$enterprise->id]) }}" class="btn-small indigo">Edit</a>
+                    @can('enterprise.edit.'.$enterprise->id)
+                        <a href="{{ route('enterprise.edit', [$enterprise->id]) }}" class="btn-small indigo">Edit</a>
                     @endcan
                 </div>
             </div>

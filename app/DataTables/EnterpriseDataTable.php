@@ -26,9 +26,9 @@ class EnterpriseDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'pages.settings.enterprises.datatable-action')
-            ->editColumn('logo', 'pages.settings.enterprises.datatable-logo')
-            ->editColumn('active', 'pages.settings.enterprises.datatable-active')
+            ->addColumn('action', 'pages.enterprises.datatable-action')
+            ->editColumn('logo', 'pages.enterprises.datatable-logo')
+            ->editColumn('active', 'pages.enterprises.datatable-active')
             ->editColumn('created_at', function (Enterprise $enterprise) {
                 return $enterprise->created_at;
             })

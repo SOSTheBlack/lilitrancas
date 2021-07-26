@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Settings\Enterprises;
+namespace App\Http\Controllers\Enterprises;
 
 use App\Helpers\withUser;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Settings\SettingController;
 use App\Models\Enterprise;
 
 /**
  * Class EnterpriseController.
  *
- * @package App\Http\Controllers\Settings\Enterprises
+ * @package App\Http\Controllers\Enterprises
  */
-class EnterpriseController extends SettingController
+class EnterpriseController extends Controller
 {
     use withUser;
 
@@ -26,7 +27,7 @@ class EnterpriseController extends SettingController
         ];
 
         if ($this->user->can('settings.enterprise.index')) {
-            $breadcrumbs[] = ['link' => route('settings.enterprises.index'), 'name' => __("Empresas")];
+            $breadcrumbs[] = ['link' => route('enterprise.index'), 'name' => __("Empresas")];
         }
 
         if (! is_null($enterprise)) {

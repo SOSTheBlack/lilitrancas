@@ -21,7 +21,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @method static SocialMediaLinkFactory factory(...$parameters)
+ * @property-read \App\Models\SocialMedia $socialMedia
+ * @method static \Database\Factories\SocialMediaLinkFactory factory(...$parameters)
  * @method static Builder|SocialMediaLink newModelQuery()
  * @method static Builder|SocialMediaLink newQuery()
  * @method static Builder|SocialMediaLink query()
