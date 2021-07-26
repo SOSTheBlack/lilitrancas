@@ -7,6 +7,7 @@ Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/')->name('home')->uses('HomeController');
+    Route::get('/logout')->name('logout')->uses('Auth\LoginController@logout');
 
     Route::prefix('settings')->namespace('Settings')->group(function () {
         Route::prefix('enterprises')->namespace('Enterprises')->group(function () {

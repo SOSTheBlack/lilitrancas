@@ -18,9 +18,8 @@ Renew Support: https://themeforest.net/item/materialize-material-design-admin-te
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 
 -->
-@dd(session()->get('locale'))
 <html class="loading"
-  lang="pt_BR"
+  lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
   data-textdirection="ltr">
 <!-- BEGIN: Head-->
 

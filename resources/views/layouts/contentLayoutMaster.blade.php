@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 -->
 <html class="loading"
-  lang="pt_BR"
+  lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
   data-textdirection="{{ env('MIX_CONTENT_DIRECTION') === 'rtl' ? 'rtl' : 'ltr' }}">
 <!-- BEGIN: Head-->
 
