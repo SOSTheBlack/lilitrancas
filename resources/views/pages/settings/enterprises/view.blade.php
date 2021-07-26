@@ -37,8 +37,6 @@
                     </div>
                 </div>
                 <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                    <a href="mailto: {{ $enterprise->owner->email }}" class="btn-small btn-light-indigo"><i
-                                class="material-icons">mail_outline</i></a>
                     @can('users.show.'.$enterprise->user_id)
                         <a href="{{ route('users.show', [$enterprise->user_id]) }}"
                            class="btn-small btn-light-indigo">{{ __('Administrador') }}</a>
@@ -72,6 +70,7 @@
 
                 <div class="row">
                     <div class="col s12">
+                        <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> {{ __('Dados Empresariais') }}</h6>
                         <table class="striped">
                             <tbody>
                             <tr>
@@ -90,30 +89,8 @@
                                 <td><i class="fas fa-passport"></i> {{ __('Documento') }}:</td>
                                 <td>{{ $enterprise->document_number }}</td>
                             </tr>
-                            </tbody>
-                        </table>
-                        <h6 class="mb-2 mt-2"><i class="material-icons">link</i> {{ __('Links Sociais') }}</h6>
-                        <table class="striped">
-                            <tbody>
                             <tr>
-                                <td><i class="fab fa-twitter"></i> Twitter:</td>
-                                <td><a href="#">https://www.twitter.com/</a></td>
-                            </tr>
-                            <tr>
-                                <td><i class="fab fa-facebook"></i> Facebook:</td>
-                                <td><a href="#">https://www.facebook.com/</a></td>
-                            </tr>
-                            <tr>
-                                <td><i class="fab fa-instagram"></i> Instagram:</td>
-                                <td><a href="#">https://www.instagram.com/</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> Personal Info</h6>
-                        <table class="striped">
-                            <tbody>
-                            <tr>
-                                <td><i class="fas fa-city"></i> {{ __('Cidade') }}:</td>
+                                <td><i class="fas fa-map-marker-alt"></i></i> {{ __('Cidade') }}:</td>
                                 <td>{{ $enterprise->city }}</td>
                             </tr>
                             <tr>
@@ -130,13 +107,30 @@
                             </tr>
                             </tbody>
                         </table>
+                        <h6 class="mb-2 mt-2"><i class="material-icons">link</i> {{ __('Links Sociais') }}</h6>
+                        <table class="striped">
+                            <tbody>
+                            @forelse($enterprise->links as $link)
+                                <tr>
+                                    <td>
+                                        <i class="fab fa-{{ $link->socialMedia->slug }}"></i> {{ $link->socialMedia->name }}
+                                        :
+                                    </td>
+                                    <td><a href="{{ $link->link }}">{{ $link->link }}</a></td>
+                                </tr>
+                            @empty
+                                <div>
+                                    <span class="grey-text border-radius-5"> {{ __('Não existe links sociais cadastrados') }}</span>
+                                </div>
+                            @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- </div> -->
             </div>
         </div>
         <!-- users view card details ends -->
-
     </div>
 @endsection
 

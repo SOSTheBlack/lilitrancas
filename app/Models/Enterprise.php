@@ -30,11 +30,13 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ *
  * @property-read Collection|\App\Models\Influencer[] $influencers
  * @property-read int|null $influencers_count
  * @property-read \App\Models\User $owner
  * @property-read Collection|\App\Models\User[] $users
  * @property-read int|null $users_count
+ *
  * @method static \Database\Factories\EnterpriseFactory factory(...$parameters)
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
@@ -53,6 +55,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Enterprise whereName($value)
  * @method static Builder|Enterprise whereUpdatedAt($value)
  * @method static Builder|Enterprise whereUserId($value)
+ *
  * @mixin Eloquent
  */
 class Enterprise extends Model
@@ -105,6 +108,14 @@ class Enterprise extends Model
     public function influencers(): HasMany
     {
         return $this->hasMany(Influencer::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function links(): HasMany
+    {
+        return $this->hasMany(SocialMediaLink::class, 'ref_id')->whereModel(Enterprise::class);
     }
 
 }

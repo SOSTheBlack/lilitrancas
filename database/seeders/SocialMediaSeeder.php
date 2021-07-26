@@ -22,7 +22,8 @@ class SocialMediaSeeder extends Seeder
         'Twitter',
         'Youtube',
         'TikTok',
-        'WhatsApp'
+        'WhatsApp',
+        'Outro'
     ];
 
     /**
@@ -35,7 +36,7 @@ class SocialMediaSeeder extends Seeder
         foreach (self::SOCIAL_MEDIA as $socialMedia) {
             SocialMedia::create([
                 'name' => Str::title($socialMedia),
-                'slug' => Str::slug($socialMedia)
+                'slug' => Str::slug($socialMedia),
             ]);
         }
     }
