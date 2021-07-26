@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Enterprise;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -26,6 +25,25 @@ class PermissionTableSeeder extends Seeder
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
+        $this->createSuperAdmin();
+
+        Role::create(['name' => 'manager']);
+        Role::create(['name' => 'influencer']);
+        Role::create(['name' => 'client']);
+
+        Permission::create(['name' => 'enterprise.index']);
+        Permission::create(['name' => 'enterprise.edit']);
+        Permission::create(['name' => 'enterprise.view']);
+        Permission::create(['name' => 'enterprise.delete']);
+        Permission::create(['name' => 'enterprise.store']);
+        Permission::create(['name' => 'enterprise.update']);
+    }
+
+    /**
+     * @return void
+     */
+    private function createSuperAdmin(): void
+    {
         $role = Role::create(['name' => 'super-admin']);
 
         /** @var User $user */
@@ -35,19 +53,5 @@ class PermissionTableSeeder extends Seeder
         ]);
 
         $user->assignRole($role);
-
-        /** @var Enterprise $enterprise */
-        $enterprise = Enterprise::factory()->create(['active' => true, 'user_id' => $user->id]);
-        $enterprise->users()->attach($user->id);
-
-//        $user->enterprises()->attach($enterprise->id);
-
-        Permission::create(['name' => 'enterprise']);
-        Permission::create(['name' => 'enterprise.index']);
-        Permission::create(['name' => 'enterprise.edit']);
-        Permission::create(['name' => 'enterprise.view']);
-        Permission::create(['name' => 'enterprise.delete']);
-        Permission::create(['name' => 'enterprise.store']);
-        Permission::create(['name' => 'enterprise.update']);
     }
 }
