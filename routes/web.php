@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
+
+dd(
+    \Spatie\Permission\Models\Role::findByName('influencer')
+);
 
 Auth::routes(['verify' => true]);
 
@@ -16,7 +21,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/{enterprise}/edit')->name('enterprise.edit')->uses('EnterpriseEditController');
     });
 
-    Route::prefix('users')->namespace('Users')->group(function () {
+    Route::prefix('user')->namespace('Users')->group(function () {
         Route::get('/me')->name('user.me')->uses('MeUserController');
         Route::get('/{user}')->name('user.show')->uses('ShowUserController');
     });

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 /**
  * Class RegisterController.
@@ -77,10 +77,12 @@ class RegisterController extends AuthController
      */
     protected function create(array $data): User
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->assignRole(Role::findByName('influencer'));
     }
 }

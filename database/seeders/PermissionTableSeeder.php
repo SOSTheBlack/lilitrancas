@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -22,8 +23,7 @@ class PermissionTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Reset cached roles and permissions
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        $this->resetCached();
 
         $this->createSuperAdmin();
 
@@ -40,18 +40,34 @@ class PermissionTableSeeder extends Seeder
     }
 
     /**
+     * Reset cached roles and permissions
+     *
+     * @return void
+     */
+    private function resetCached(): void
+    {
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+    }
+
+    /**
      * @return void
      */
     private function createSuperAdmin(): void
     {
-        $role = Role::create(['name' => 'super-admin']);
+        $role = Role::findOrCreate('super-admin');
 
-        /** @var User $user */
-        $user = User::factory()->create([
-            'name' => 'Jean C. Garcia',
-            'email' => 'jeancesargarcia@gmail.com',
-        ]);
-
-        $user->assignRole($role);
+        try {
+            $user = User::firstOrCreate(['email' => 'jeancesargarcia@gmail.com'], [
+                'name' => 'Jean C. Garcia',
+                'email' => 'jeancesargarcia@gmail.com',
+            ]);
+        } catch (ModelNotFoundException $exception) {
+            $user = User::factory()->create([
+                'name' => 'Jean C. Garcia',
+                'email' => 'jeancesargarcia@gmail.com',
+            ]);
+        } finally {
+            $user->assignRole($role);
+        }
     }
 }
