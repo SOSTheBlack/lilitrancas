@@ -4,7 +4,7 @@
     <div class="nav-wrapper">
       <div class="header-search-wrapper hide-on-med-and-down">
         <i class="material-icons">search</i>
-        <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize"
+        <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="{{ __('Explorar ' . config('app.name')) }}"
           data-search="template-list">
         <ul class="search-list collection display-none"></ul>
       </div>
@@ -153,7 +153,7 @@
       <div class="nav-wrapper">
         <form id="navbarForm">
           <div class="input-field search-input-sm">
-            <input class="search-box-sm mb-0" type="search" required="" placeholder='Explore Materialize' id="search"
+            <input class="search-box-sm mb-0" type="search" required="" placeholder='{{ __('Explorar ' . config('app.name')) }}' id="search"
               data-search="template-list">
             <label class="label-icon" for="search">
               <i class="material-icons search-sm-icon">search</i>

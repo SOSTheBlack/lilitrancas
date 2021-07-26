@@ -1,4 +1,5 @@
 <?php
+
 // custom.php file returd default configuration setting of layouts
 return [
     'custom' => [
@@ -15,7 +16,7 @@ return [
         'activeMenuType' => '', //Options:default("") sidenav-active-square, sidenav-active-rounded, sidenav-active-fullwidth  Warning:this option is not applicable for horizontal
         'isFooterDark' => null, //True for dark, flase for light and null for default
         'isFooterFixed' => false, //options:true or false
-        'templateTitle' => '', //template Title can be changes default('Materialize)
+        'templateTitle' => config('app.name'), //template Title can be changes default('Materialize)
         'isCustomizer' => false, //If True customizer available or false its not available
         'defaultLanguage' => 'en', //set your default language Options: en(default),pt,fr,de
         'largeScreenLogo' => 'images/logo/materialize-logo-color.png', //we used saparete log image for large screen and small

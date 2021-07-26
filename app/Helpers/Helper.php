@@ -1,7 +1,8 @@
-<?php // Code within app\Helpers\Helper.php
+<?php
+// Code within app\Helpers\Helper.php
 namespace App\Helpers;
+
 use Config;
-use Illuminate\Support\Str;
 
 /**
  * Class Helper.
@@ -10,7 +11,10 @@ use Illuminate\Support\Str;
  */
 class Helper
 {
-    public static function applClasses()
+    /**
+     * @return array
+     */
+    public static function applClasses(): array
     {
         // default data value
         $dataDefault = [
@@ -27,12 +31,12 @@ class Helper
             'activeMenuType' => '',
             'isFooterDark' => null,
             'isFooterFixed' => false,
-            'templateTitle' => '',
+            'templateTitle' => config('app.name'),
             'isCustomizer' => true,
-            'defaultLanguage'=>'en',
+            'defaultLanguage' => 'en',
             'largeScreenLogo' => 'images/logo/materialize-logo-color.png',
             'smallScreenLogo' => 'images/logo/materialize-logo.png',
-            'isFabButton'=>false, 
+            'isFabButton' => false,
             'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'),
         ];
         // if any key missing of array from custom.php file it will be merge and set a default value from dataDefault array and store in data variable
@@ -46,13 +50,13 @@ class Helper
             'isNavbarFixed' => array(true, false),
             'isMenuDark' => array(null, true, false),
             'isMenuCollapsed' => array(true, false),
-            'activeMenuType' => array('sidenav-active-square'=>'sidenav-active-square', 'sidenav-active-rounded'=>'sidenav-active-rounded', 'sidenav-active-fullwidth'=>'sidenav-active-fullwidth'),
+            'activeMenuType' => array('sidenav-active-square' => 'sidenav-active-square', 'sidenav-active-rounded' => 'sidenav-active-rounded', 'sidenav-active-fullwidth' => 'sidenav-active-fullwidth'),
             'isFooterDark' => array(null, true, false),
             'isFooterFixed' => array(false, true),
             'isCustomizer' => array(true, false),
-            'isFabButton'=> array(false, true), 
-            'defaultLanguage'=>array('en'=>'en','fr'=>'fr','de'=>'de','pt'=>'pt'),
-            'direction' => array('ltr'=>'ltr', 'rtl'=>'rtl'),
+            'isFabButton' => array(false, true),
+            'defaultLanguage' => array('en' => 'en', 'fr' => 'fr', 'de' => 'de', 'pt' => 'pt'),
+            'direction' => array('ltr' => 'ltr', 'rtl' => 'rtl'),
         ];
         //if any options value empty or wrong in custom.php config file then set a default value
         foreach ($allOptions as $key => $value) {
@@ -178,19 +182,25 @@ class Helper
             'isCustomizer' => $data['isCustomizer'],
             'largeScreenLogo' => $data['largeScreenLogo'],
             'smallScreenLogo' => $data['smallScreenLogo'],
-            'defaultLanguage'=>$allOptions['defaultLanguage'][$data['defaultLanguage']],
+            'defaultLanguage' => $allOptions['defaultLanguage'][$data['defaultLanguage']],
             'mainFooterClass' => $mainFooterClass[$data['mainLayoutType']],
             'mainFooterColor' => $mainFooterColor[$data['mainLayoutType']],
-            'isFabButton'=>$data['isFabButton'],
+            'isFabButton' => $data['isFabButton'],
             'direction' => $data['direction'],
         ];
-         // set default language if session hasn't locale value the set default language
-         if(!session()->has('locale')){
+        // set default language if session hasn't locale value the set default language
+        if (! session()->has('locale')) {
             app()->setLocale($layoutClasses['defaultLanguage']);
         }
+
         return $layoutClasses;
     }
-    // updatesPageConfig function override all configuration of custom.php file as page requirements.
+
+    /**
+     * UpdatesPageConfig function override all configuration of custom.php file as page requirements.
+     *
+     * @param $pageConfigs
+     */
     public static function updatePageConfig($pageConfigs)
     {
         $demo = 'custom';
@@ -198,7 +208,7 @@ class Helper
         if (isset($pageConfigs)) {
             if (count($pageConfigs) > 0) {
                 foreach ($pageConfigs as $config => $val) {
-                    Config::set($demo . '.' . $custom . '.' . $config, $val);
+                    Config::set($demo.'.'.$custom.'.'.$config, $val);
                 }
             }
         }

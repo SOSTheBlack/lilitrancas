@@ -33,7 +33,7 @@
           @if(!empty ($configData['templateTitle']) && isset($configData['templateTitle']))
                         {{$configData['templateTitle']}}
                     @else
-                        Materialize
+                        {{ config('app.name') }}
                     @endif
         </span>
             </a>
