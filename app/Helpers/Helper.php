@@ -33,7 +33,7 @@ class Helper
             'isFooterFixed' => false,
             'templateTitle' => config('app.name'),
             'isCustomizer' => true,
-            'defaultLanguage' => 'en',
+            'defaultLanguage' => config('app.locale'),
             'largeScreenLogo' => 'images/logo/materialize-logo-color.png',
             'smallScreenLogo' => 'images/logo/materialize-logo.png',
             'isFabButton' => false,
@@ -55,7 +55,7 @@ class Helper
             'isFooterFixed' => array(false, true),
             'isCustomizer' => array(true, false),
             'isFabButton' => array(false, true),
-            'defaultLanguage' => array('en' => 'en', 'fr' => 'fr', 'de' => 'de', 'pt' => 'pt'),
+            'defaultLanguage' => array('pt_BR' => 'pt_BR', 'fr' => 'fr', 'de' => 'de', 'pt' => 'pt'),
             'direction' => array('ltr' => 'ltr', 'rtl' => 'rtl'),
         ];
         //if any options value empty or wrong in custom.php config file then set a default value
