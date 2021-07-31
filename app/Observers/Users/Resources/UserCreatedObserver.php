@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observers\User\Resources;
+namespace App\Observers\Users\Resources;
 
 use App\Helpers\UiAvatars\UiAvatar;
 use App\Models\User;

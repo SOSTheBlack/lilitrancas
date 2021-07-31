@@ -2,6 +2,7 @@
     <nav
             class="{{$configData['navbarMainClass']}} @if($configData['isNavbarDark']=== true) {{'navbar-dark'}} @elseif($configData['isNavbarDark']=== false) {{'navbar-light'}} @elseif(!empty($configData['navbarBgColor'])) {{$configData['navbarBgColor']}} @else {{$configData['navbarMainColor']}} @endif">
         <div class="nav-wrapper">
+
             <ul class="navbar-list right">
                 <li class="dropdown-language">
                     <a class="waves-effect waves-block waves-light translation-button" href="#"
@@ -34,13 +35,14 @@
             </span>
                     </a>
                 </li>
-{{--                <li>--}}
-{{--                    <a class="waves-effect waves-block waves-light sidenav-trigger" href="#"--}}
-{{--                       data-target="slide-out-right">--}}
-{{--                        <i class="material-icons">format_indent_increase</i>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
             </ul>
+            <div class="header-search-wrapper hide-on-med-and-down">
+                <i class="material-icons">sentiment_very_satisfied</i>
+                <input class="header-search-input z-depth-2 is-disabled" type="text" name="Search"
+                       placeholder="Olá, {{ $authUser->name }}"
+                       data-search="template-list" disabled="disabled">
+                <ul class="search-list collection display-none"></ul>
+            </div>
             <!-- translation-button-->
             <ul class="dropdown-content" id="translation-dropdown">
                 <li class="dropdown-item">
@@ -104,21 +106,5 @@
                 </li>
             </ul>
         </div>
-        <nav class="display-none search-sm">
-            <div class="nav-wrapper">
-                <form id="navbarForm">
-                    <div class="input-field search-input-sm">
-                        <input class="search-box-sm mb-0" type="search" required=""
-                               placeholder='{{ __('Explorar ' . config('app.name')) }}' id="search"
-                               data-search="template-list">
-                        <label class="label-icon" for="search">
-                            <i class="material-icons search-sm-icon">search</i>
-                        </label>
-                        <i class="material-icons search-sm-close">close</i>
-                        <ul class="search-list collection search-list-sm display-none"></ul>
-                    </div>
-                </form>
-            </div>
-        </nav>
     </nav>
 </div>

@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;;
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/')->name('home')->uses('HomeController');
+    Route::namespace('Dashboard')->group(function () {
+        Route::get('/')->name('dashboard.index')->uses('IndexDashboardController');
+    });
+
     Route::get('/logout')->name('logout')->uses('Auth\LoginController@logout');
 
     Route::prefix('enterprise')->namespace('Enterprises')->group(function () {

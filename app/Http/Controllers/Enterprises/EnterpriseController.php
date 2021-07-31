@@ -22,7 +22,7 @@ class EnterpriseController extends Controller
     protected function setBreadcrumbs(?Enterprise $enterprise = null): void
     {
         $breadcrumbs = [
-            ['link' => route('home'), 'name' => __('Home')],
+            ['link' => route('dashboard.index'), 'name' => __('Home')],
             ['link' => "javascript:void(0)", 'name' => __('Configurações')],
         ];
 

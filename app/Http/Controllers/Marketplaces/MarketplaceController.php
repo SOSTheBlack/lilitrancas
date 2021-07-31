@@ -36,7 +36,7 @@ abstract class MarketplaceController extends Controller
     protected function setBreadcrumbs(): void
     {
         $breadcrumbs = [
-            ['link' => route('home'), 'name' => __('Home')],
+            ['link' => route('dashboard.index'), 'name' => __('Home')],
             ['name' => __('Marketplace')],
         ];
 

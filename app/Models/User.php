@@ -29,8 +29,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Collection|User[] $enterprises
- * @property-read int|null $enterprises_count
+ * @property-read Collection|User[] $enterprise
+ * @property-read int|null $enterprise_count
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read Collection|Permission[] $permissions
