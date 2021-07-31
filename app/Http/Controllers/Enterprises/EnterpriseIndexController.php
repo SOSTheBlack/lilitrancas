@@ -15,6 +15,11 @@ use Illuminate\View\View;
 class EnterpriseIndexController extends EnterpriseController
 {
     /**
+     * @var string
+     */
+    private string $pageTitle = 'Lista de Empresas';
+
+    /**
      * @var EnterpriseDataTable
      */
     private EnterpriseDataTable $enterpriseDataTable;
@@ -38,7 +43,8 @@ class EnterpriseIndexController extends EnterpriseController
      */
     public function __invoke(EnterpriseIndexRequest $enterpriseIndexRequest): View|JsonResponse
     {
-        $this->setBreadcrumbs();
+        $this->setPageTitle($this->pageTitle);
+        $this->setBreadcrumbs(['name' =>$this->pageTitle]);
 
         return $this->enterpriseDataTable->render('pages.enterprises.index');
     }

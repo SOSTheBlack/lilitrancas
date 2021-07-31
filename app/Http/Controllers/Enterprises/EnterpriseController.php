@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Enterprises;
 
 use App\Helpers\withUser;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Settings\SettingController;
-use App\Models\Enterprise;
 
 /**
  * Class EnterpriseController.
@@ -17,23 +15,20 @@ class EnterpriseController extends Controller
     use withUser;
 
     /**
-     * @param  Enterprise|null  $enterprise
+     * Breadcrumbs.
+     *
+     * @param  array  $breadcrumbs
+     *
+     * @return $this
      */
-    protected function setBreadcrumbs(?Enterprise $enterprise = null): void
+    public function setBreadcrumbs(array $breadcrumbs): EnterpriseController
     {
-        $breadcrumbs = [
-            ['link' => route('dashboard.index'), 'name' => __('Home')],
-            ['link' => "javascript:void(0)", 'name' => __('Configurações')],
-        ];
+        $newBreadcrumbs[] = $breadcrumbs;
 
         if ($this->user->can('settings.enterprise.index')) {
-            $breadcrumbs[] = ['link' => route('enterprise.index'), 'name' => __("Empresas")];
+            $newBreadcrumbs[] = ['link' => route('enterprise.index'), 'name' => __("Empresas")];
         }
 
-        if (! is_null($enterprise)) {
-            $breadcrumbs[] = ['name' => $enterprise->name];
-        }
-
-        view()->share('breadcrumbs', $breadcrumbs);
+        return parent::setBreadcrumbs($newBreadcrumbs);
     }
 }

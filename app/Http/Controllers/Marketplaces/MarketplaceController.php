@@ -33,7 +33,7 @@ abstract class MarketplaceController extends Controller
     /**
      * @return void
      */
-    protected function setBreadcrumbs(): void
+    public function setBreadcrumbs(array $breadcrumbs): Controller
     {
         $breadcrumbs = [
             ['link' => route('dashboard.index'), 'name' => __('Home')],

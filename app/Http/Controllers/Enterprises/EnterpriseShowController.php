@@ -14,7 +14,7 @@ use function view;
  *
  * @package App\Http\Controllers\Enterprises
  */
-class EnterpriseViewController extends EnterpriseController
+class EnterpriseShowController extends EnterpriseController
 {
     use withUser;
 
@@ -28,8 +28,8 @@ class EnterpriseViewController extends EnterpriseController
      */
     public function __invoke(Enterprise $enterprise, EnterpriseViewRequest $enterpriseViewRequest): View
     {
-        $this->setBreadcrumbs($enterprise);
+        $this->setBreadcrumbs(['name' => $enterprise->name]);
 
-        return view('pages.enterprises.view', ['enterprise' => $enterprise]);
+        return view('pages.enterprises.show', ['enterprise' => $enterprise]);
     }
 }

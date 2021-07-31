@@ -13,7 +13,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
@@ -37,7 +39,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $permissions_count
  * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
- * @method static \Database\Factories\UserFactory factory(...$parameters)
+ * @property string short_name
+ * @method static UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User permission($permissions)
@@ -96,8 +99,26 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $dateFormat = 'Y-m-d H:i:s';
 
+    /**
+     * Define a many-to-many relationship.
+     *
+     * @return BelongsToMany
+     */
     public function enterprise(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortNameAttribute(): string
+    {
+        $nameExplode = explode(' ', $this->name);
+
+        $firstName = Arr::first($nameExplode);
+        $lastName = Arr::last($nameExplode);
+
+        return Str::title($firstName . ' ' . $lastName);
     }
 }

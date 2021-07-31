@@ -15,11 +15,12 @@ Route::middleware('auth')->group(function () {
     Route::prefix('enterprise')->namespace('Enterprises')->group(function () {
         Route::get('/new')->name('enterprise.new')->uses('EnterpriseNewController');
         Route::get('/')->name('enterprise.index')->uses('EnterpriseIndexController');
-        Route::get('/{enterprise}')->name('enterprise.view')->uses('EnterpriseViewController');
+        Route::get('/{enterprise}')->name('enterprise.view')->uses('EnterpriseShowController');
         Route::get('/{enterprise}/edit')->name('enterprise.edit')->uses('EnterpriseEditController');
     });
 
     Route::prefix('user')->namespace('Users')->group(function () {
+//        Route::get('/')->name('user.index')->uses('UserIndexController');
         Route::get('/me')->name('user.me')->uses('MeUserController');
         Route::get('/{user}')->name('user.show')->uses('ShowUserController');
     });
