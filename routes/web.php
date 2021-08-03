@@ -29,3 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/')->name('marketplace.index')->uses('MarketplaceIndexController');
     });
 });
+
+Route::prefix('/e')->namespace('Enterprises')->group(function () {
+    Route::get('/{enterprise:username}')->name('enterprise.show-public')->uses('EnterpriseShowPublicController');
+});

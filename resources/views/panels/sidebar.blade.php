@@ -55,14 +55,19 @@
                         @php
                             $routeIsJavaScript = $menu->url === 'javascript:void(0)';
 
+                            $active = '';
+                            if (! $routeIsJavaScript && request()->routeIs($menu->url)) {
+                                $active = 'active';
+                            }
+
                               $custom_classes="";
                               if(isset($menu->class))
                               {
                               $custom_classes = $menu->class;
                               }
                         @endphp
-                        <li class="bold {{(request()->is($routeIsJavaScript ?? route($menu->url).'*')) ? 'active' : '' }}">
-                            <a class="{{$custom_classes}} {{ (request()->is($routeIsJavaScript ?? route($menu->url).'*')) ? 'active '.$configData['activeMenuColor'] : ''}}"
+                        <li class="bold {{$active}}">
+                            <a class="{{$custom_classes}} {{ $active . ' '.$configData['activeMenuColor']}}"
                                @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
                                href="@if($routeIsJavaScript){{$menu->url}} @else{{route($menu->url)}} @endif"
                                     {{isset($menu->newTab) ? 'target="_blank"':''}}>

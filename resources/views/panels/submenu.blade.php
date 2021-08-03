@@ -9,11 +9,16 @@
                   {
                   $custom_classes = $submenu->class;
                   }
+
+            $active = '';
+if (! $routeIsJavaScript && request()->routeIs($submenu->url)) {
+    $active = 'active';
+}
             @endphp
             @can($submenu?->permission)
-                <li class="{{(request()->is($routeIsJavaScript ?? route($submenu->url).'*')) ? 'active' : '' }}">
+                <li class="{{$active}}">
                     <a href="@if($routeIsJavaScript){{$submenu->url}} @else{{route($submenu->url)}} @endif"
-                       class="{{$custom_classes}} {{(request()->is($submenu->url.'*')) ? 'active '.$configData['activeMenuColor'] : '' }}"
+                       class="{{$custom_classes}} {{$active . ' '.$configData['activeMenuColor']}}"
                     @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
                             {{isset($submenu->newTab) ? 'target="_blank"':''}}>
                         <i class="material-icons">radio_button_unchecked</i>

@@ -33,14 +33,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Carbon|null $updated_at
  * @property-read Collection|User[] $enterprise
  * @property-read int|null $enterprise_count
+ * @property-read string $short_name
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
  * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
- * @property string short_name
- * @method static UserFactory factory(...$parameters)
+ * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User permission($permissions)

@@ -1,6 +1,15 @@
 {
     "menu": [
         {
+            "url": "dashboard.index",
+            "i18n": "Dashboard",
+            "name": "Dashboard",
+            "slug": "dashboard",
+            "activate": "DashboardDropdown",
+            "icon": "dashboard",
+            "permission": ""
+        },
+        {
             "url": "javascript:void(0)",
             "name": "Configurações",
             "permission": "enterprise",
