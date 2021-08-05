@@ -56,7 +56,7 @@
                             $routeIsJavaScript = $menu->url === 'javascript:void(0)';
 
                             $active = '';
-                            if (! $routeIsJavaScript && request()->routeIs($menu->url)) {
+                            if (! $routeIsJavaScript && request()->routeIs($menu->url) || request()->is()) {
                                 $active = 'active';
                             }
 

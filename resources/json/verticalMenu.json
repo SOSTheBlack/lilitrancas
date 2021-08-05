@@ -10,23 +10,12 @@
             "permission": ""
         },
         {
-            "url": "javascript:void(0)",
-            "name": "Configurações",
-            "permission": "enterprise",
-            "i18n": "Configurações",
-            "class": "collapsible-header waves-effect waves-cyan",
-            "slug": "dashboard",
-            "icon": "settings",
-            "tagcustom": "badge pill orange float-right mr-10",
-            "submenu": [
-                {
-                    "url": "enterprise.index",
-                    "permission": "enterprise.index",
-                    "name": "Empresas",
-                    "i18n": "Enterprises",
-                    "slug": "enterprise"
-                }
-            ]
+            "url": "enterprise.index",
+            "permission": "enterprise.index",
+            "name": "Empresas",
+            "i18n": "Enterprises",
+            "slug": "enterprise",
+            "icon": "settings"
         }
     ]
 }
