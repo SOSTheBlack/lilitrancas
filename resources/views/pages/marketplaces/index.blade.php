@@ -19,13 +19,13 @@
         <div class="card">
             <div class="card-content">
                 <p class="caption mb-1">
-                    Aqui se encontra todos as empresas que estão procurando exatamente o seu perfil.
+                    {{ __('Aqui se encontra todos as empresas que estão procurando exatamente o seu perfil.') }}
                 </p>
                 <p class="mb-1">
-                    Explore as empresas e seus benefícios, a que mais se sentir confiante afilia-se!
+                    {{ __('Explore as empresas e seus benefícios, a que mais se sentir confiante afilia-se!') }}
                 </p>
                 <p class="mb-0">
-                    Um mundo de oportunidades está bem na sua frente
+                     {{ __('Um mundo de oportunidades está bem na sua frente') }}
                 </p>
             </div>
         </div>

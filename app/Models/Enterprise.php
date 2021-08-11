@@ -18,6 +18,7 @@ use Illuminate\Support\Carbon;
  *
  * @property int $id
  * @property int $user_id
+ * @property string $username
  * @property bool $active
  * @property string $name
  * @property string $logo
@@ -55,6 +56,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Enterprise whereName($value)
  * @method static Builder|Enterprise whereUpdatedAt($value)
  * @method static Builder|Enterprise whereUserId($value)
+ * @method static Builder|Enterprise whereUsername($value)
  * @mixin Eloquent
  */
 class Enterprise extends Model
