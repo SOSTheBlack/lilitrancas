@@ -23,7 +23,7 @@ abstract class Controller extends BaseController
      *
      * @return $this
      */
-    protected function setPageTitle(string $pageTitle): self
+    protected function sharePageTitle(string $pageTitle): self
     {
         view()->share('pageTitle', $pageTitle);
 
@@ -37,7 +37,7 @@ abstract class Controller extends BaseController
      *
      * @return $this
      */
-    protected function setBreadcrumbs(array $breadcrumbs): self
+    protected function shareBreadcrumbs(array $breadcrumbs): self
     {
         $breadcrumbs[] = ['link' => route('dashboard.index'), 'name' => __('Home')];
 

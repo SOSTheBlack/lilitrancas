@@ -22,8 +22,8 @@ class ShowUserController extends UserController
      */
     public function __invoke(User $user, ShowUserRequest $request): View
     {
-        $this->setPageTitle($user->short_name);
-        $this->setBreadcrumbs(['name' => $user->short_name]);
+        $this->sharePageTitle($user->short_name);
+        $this->shareBreadcrumbs(['name' => $user->short_name]);
 
         return view('pages.users.show');
     }

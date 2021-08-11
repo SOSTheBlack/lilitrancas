@@ -21,7 +21,7 @@ class EnterpriseController extends Controller
      *
      * @return $this
      */
-    public function setBreadcrumbs(array $breadcrumbs): EnterpriseController
+    public function shareBreadcrumbs(array $breadcrumbs): EnterpriseController
     {
         $newBreadcrumbs[] = $breadcrumbs;
 
@@ -29,6 +29,6 @@ class EnterpriseController extends Controller
             $newBreadcrumbs[] = ['link' => route('enterprise.index'), 'name' => __("Empresas")];
         }
 
-        return parent::setBreadcrumbs($newBreadcrumbs);
+        return parent::shareBreadcrumbs($newBreadcrumbs);
     }
 }

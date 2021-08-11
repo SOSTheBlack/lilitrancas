@@ -43,8 +43,8 @@ class EnterpriseIndexController extends EnterpriseController
      */
     public function __invoke(EnterpriseIndexRequest $enterpriseIndexRequest): View|JsonResponse
     {
-        $this->setPageTitle($this->pageTitle);
-        $this->setBreadcrumbs(['name' =>$this->pageTitle]);
+        $this->sharePageTitle($this->pageTitle);
+        $this->shareBreadcrumbs(['name' =>$this->pageTitle]);
 
         return $this->enterpriseDataTable->render('pages.enterprises.index');
     }

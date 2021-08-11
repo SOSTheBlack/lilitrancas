@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Marketplaces;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /**
  * Class MarketplaceIndexController.
@@ -12,16 +12,20 @@ use Illuminate\Http\Response;
  */
 class MarketplaceIndexController extends MarketplaceController
 {
+    private string $pageTitle = 'Marketplace';
+
     /**
      * Handle the incoming request.
      *
      * @param  Request  $request
      *
-     * @return Response
+     * @return View
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): View
     {
-        $this->setBreadcrumbs();
+        $this->sharePageTitle($this->pageTitle);
+        $this->shareBreadcrumbs();
+
         return view('pages.marketplaces.index');
     }
 }

@@ -21,7 +21,7 @@ abstract class UserController extends Controller
      *
      * @return $this
      */
-    public function setBreadcrumbs(array $breadcrumbs): UserController
+    public function shareBreadcrumbs(array $breadcrumbs): UserController
     {
         $newBreadcrumbs[] = $breadcrumbs;
 
@@ -29,6 +29,6 @@ abstract class UserController extends Controller
             $newBreadcrumbs[] = ['link' => route('dashboard.index'), 'name' => __('Lista de Usuários')];
         }
 
-        return parent::setBreadcrumbs($newBreadcrumbs);
+        return parent::shareBreadcrumbs($newBreadcrumbs);
     }
 }

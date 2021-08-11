@@ -31,15 +31,14 @@ abstract class MarketplaceController extends Controller
     }
 
     /**
-     * @return void
+     * @return $this
      */
-    public function setBreadcrumbs(array $breadcrumbs): Controller
+    protected function shareBreadcrumbs(?array $breadcrumbs = null): self
     {
-        $breadcrumbs = [
-            ['link' => route('dashboard.index'), 'name' => __('Home')],
-            ['name' => __('Marketplace')],
-        ];
+        $newBreadcrumbs = ! is_null($breadcrumbs) ? [$breadcrumbs] : [];
 
-        view()->share('breadcrumbs', $breadcrumbs);
+        $newBreadcrumbs[] = ['name' => __('Marketplace')];
+
+        return parent::shareBreadcrumbs($newBreadcrumbs);
     }
 }

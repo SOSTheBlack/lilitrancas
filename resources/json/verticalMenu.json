@@ -10,6 +10,15 @@
             "permission": ""
         },
         {
+            "url": "marketplace.index",
+            "i18n": "Marketplace",
+            "name": "Marketplace",
+            "slug": "marketplace",
+            "activate": "DashboardDropdown",
+            "icon": "business_center",
+            "permission": ""
+        },
+        {
             "url": "enterprise.index",
             "permission": "enterprise.index",
             "name": "Empresas",
