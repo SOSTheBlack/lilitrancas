@@ -27,7 +27,7 @@ abstract class MarketplaceController extends Controller
      */
     public function __construct(Enterprise $enterprise)
     {
-        $this->enterprise = $enterprise;
+        $this->enterprise = app(Enterprise::class);
     }
 
     /**

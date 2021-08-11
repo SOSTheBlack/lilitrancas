@@ -26,7 +26,7 @@ abstract class UserController extends Controller
         $newBreadcrumbs[] = $breadcrumbs;
 
         if ($this->user->can('user.index')) {
-            $newBreadcrumbs[] = ['link' => route('dashboard.index'), 'name' => __('Lista de Usuários')];
+            $newBreadcrumbs[] = ['link' => route('dashboard.index'), 'name' => __('Usuários')];
         }
 
         return parent::shareBreadcrumbs($newBreadcrumbs);

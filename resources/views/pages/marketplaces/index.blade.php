@@ -25,30 +25,32 @@
                     {{ __('Explore as empresas e seus benefícios, a que mais se sentir confiante afilia-se!') }}
                 </p>
                 <p class="mb-0">
-                     {{ __('Um mundo de oportunidades está bem na sua frente') }}
+                    {{ __('Um mundo de oportunidades está bem na sua frente') }}
                 </p>
             </div>
         </div>
     </div>
-
-    <!--Social Card-->
+    <!--Enterprise-->
     <div id="card-panel-type1" class="section ">
-        <h4 class="header">Título da Categoria</h4>
+        <h4 class="header">{{ __('Vitrine de possibilidades') }}</h4>
         <div class="row">
-            <div class="col s12 m6 l3 card-width">
+            @forelse($enterprises as $enterprise)
+                <div class="col s12 m6 l3 card-width">
                 <div class="card card-border center-align gradient-45deg-indigo-purple">
                     <div class="card-content white-text">
                         <a class="col s12"><i class="material-icons right">favorite_border</i></a>
+                        <a class="col s12"><i class="material-icons right">favorite</i></a>
                         <img class="responsive-img circle z-depth-4" width="100"
-                             src="{{asset('images/user/6.jpg')}}" alt=""/>
-                        <h5 class="white-text mb-1">Beverly Little</h5>
-                        <p class="m-0">Senior Product Designer</p>
+                             src="{{ $enterprise->logo }}" alt=""/>
+                        <h5 class="white-text mb-1">{{ $enterprise->name }}</h5>
+                        <h5 class="white-text mb-2">{{ $enterprise->username }}</h5>
+                        <p class="m-0">Trancista</p>
+                        <p class="m-0">{{ $enterprise->city }}</p>
+                        <p class="m-0">{{ $enterprise->country }}</p>
                         <p class="mt-8">
-                            Creative usable interface & <br/>
-                            designer @Clevision
+                            {{ Str::limit($enterprise->description) }}
                         </p>
-                        <a class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4">Hire
-                            Me</a>
+                        <a class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4">{{ __('Ser Influenciadora') }}</a>
                         <div class="row mt-5">
                             <a href="#" class="col s4">
                                 <h5 class="gradient-45deg-indigo-light-blue icon-background circle white-text z-depth-3 mx-auto">
@@ -75,130 +77,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12 m6 l3 card-width">
-                <div class="card card-border center-align gradient-45deg-purple-deep-orange">
-                    <div class="card-content white-text">
-                        <div class="col s12"><i class="material-icons right">favorite</i></div>
-                        <img class="responsive-img circle z-depth-4" width="100"
-                             src="{{asset('images/user/2.jpg')}}"
-                             alt="images"/>
-                        <h5 class="white-text mb-1">Frank Goodman</h5>
-                        <p class="m-0">Senior Developer</p>
-                        <p class="mt-8">
-                            Creative usable interface & <br/>
-                            developer @Clevision
-                        </p>
-                        <a class="waves-effect waves-light btn gradient-45deg-green-teal border-round mt-7 z-depth-4">Hire
-                            Me</a>
-                        <div class="row mt-5">
-                            <a href="#" class="col s4">
-                                <h5 class="gradient-45deg-indigo-light-blue icon-background circle white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-behance"></i>
-                                </h5>
-                                <p class="white-text">12.8k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-indigo-blue white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </h5>
-                                <p class="white-text">10.1k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-red-pink white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </h5>
-                                <p class="white-text">8.23k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                        </div>
-                    </div>
+            @empty
+                <div>
+                    <span class="grey-text border-radius-5"> {{ __('Não existe empresas disponíveis no momento') }}</span>
                 </div>
-            </div>
-            <div class="col s12 m6 l3 card-width">
-                <div class="card card-border center-align gradient-45deg-indigo-purple">
-                    <div class="card-content white-text">
-                        <div class="col s12"><i class="material-icons right">favorite</i></div>
-                        <img class="responsive-img circle z-depth-4" width="100"
-                             src="{{asset('images/user/8.jpg')}}"
-                             alt="images"/>
-                        <h5 class="white-text mb-1">Luiza Ales</h5>
-                        <p class="m-0">Graphic Designer</p>
-                        <p class="mt-8">
-                            Creative usable interface & <br/>
-                            designer @Clevision
-                        </p>
-                        <a class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4">Hire
-                            Me</a>
-                        <div class="row mt-5">
-                            <a href="#" class="col s4">
-                                <h5 class="gradient-45deg-indigo-light-blue icon-background circle white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-behance"></i>
-                                </h5>
-                                <p class="white-text">12.8k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-indigo-blue white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </h5>
-                                <p class="white-text">10.1k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-red-pink white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </h5>
-                                <p class="white-text">8.23k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l3 card-width">
-                <div class="card card-border center-align gradient-45deg-indigo-purple">
-                    <div class="card-content white-text">
-                        <div class="col s12"><i class="material-icons right">favorite</i></div>
-                        <img class="responsive-img circle z-depth-4" width="100"
-                             src="{{asset('images/user/8.jpg')}}"
-                             alt="images"/>
-                        <h5 class="white-text mb-1">Luiza Ales</h5>
-                        <p class="m-0">Graphic Designer</p>
-                        <p class="mt-8">
-                            Creative usable interface & <br/>
-                            designer @Clevision
-                        </p>
-                        <a class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4">Hire
-                            Me</a>
-                        <div class="row mt-5">
-                            <a href="#" class="col s4">
-                                <h5 class="gradient-45deg-indigo-light-blue icon-background circle white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-behance"></i>
-                                </h5>
-                                <p class="white-text">12.8k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-indigo-blue white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </h5>
-                                <p class="white-text">10.1k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                            <a href="#" class="col s4">
-                                <h5 class="icon-background circle gradient-45deg-red-pink white-text z-depth-3 mx-auto">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </h5>
-                                <p class="white-text">8.23k</p>
-                                <p class="white-text">Followers</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
+    </div>
     </div>
     </div>
 @endsection

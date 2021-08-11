@@ -104,7 +104,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return BelongsToMany
      */
-    public function enterprise(): BelongsToMany
+    public function enterprises(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }

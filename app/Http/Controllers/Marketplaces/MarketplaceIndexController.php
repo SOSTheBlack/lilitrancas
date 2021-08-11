@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Marketplaces;
 
+use App\Models\Enterprise;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,12 @@ class MarketplaceIndexController extends MarketplaceController
 {
     private string $pageTitle = 'Marketplace';
 
+    public function __construct()
+    {
+        $this->sharePageTitle($this->pageTitle);
+        $this->shareBreadcrumbs();
+    }
+
     /**
      * Handle the incoming request.
      *
@@ -23,9 +30,6 @@ class MarketplaceIndexController extends MarketplaceController
      */
     public function __invoke(Request $request): View
     {
-        $this->sharePageTitle($this->pageTitle);
-        $this->shareBreadcrumbs();
-
-        return view('pages.marketplaces.index');
+        return view('pages.marketplaces.index', ['enterprises' => Enterprise::all()]);
     }
 }

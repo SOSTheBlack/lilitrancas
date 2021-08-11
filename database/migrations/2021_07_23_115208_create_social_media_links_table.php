@@ -21,6 +21,7 @@ class CreateSocialMediaLinksTable extends Migration
             $table->id();
             $table->foreignIdFor(SocialMedia::class);
             $table->foreignId('ref_id');
+            $table->enum('ref_model', ['enterprises', 'users']);
             $table->string('model');
             $table->string('link');
             $table->timestamps();
