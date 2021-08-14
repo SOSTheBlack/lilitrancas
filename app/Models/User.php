@@ -31,6 +31,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property-read \App\Models\Enterprise|null $enterprise
  * @property-read Collection|User[] $enterprises
  * @property-read int|null $enterprises_count
  * @property-read string $short_name
