@@ -3,7 +3,9 @@
 namespace App\Http\Requests\Settings\Enterprises;
 
 use App\Models\Enterprise;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 
 /**
  * Class EnterpriseCreateRequest.
@@ -19,10 +21,21 @@ class EnterpriseViewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        /** @var Enterprise $enterprise */
-        $enterprise = request()->route('enterprise');
+        $enterprise = $this->getEnterprise();
 
         return $this->user()->can('settings.enterprise.view.'.$enterprise->id);
+    }
+
+    /**
+     * @return Enterprise
+     */
+    private function getEnterprise(): Enterprise
+    {
+        if (request()->routeIs('enterprise.me')) {
+            return $this->user()->enterprise;
+        }
+
+        return request()->route('enterprise');
     }
 
     /**

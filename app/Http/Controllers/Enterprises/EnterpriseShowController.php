@@ -28,6 +28,10 @@ class EnterpriseShowController extends EnterpriseController
      */
     public function __invoke(Enterprise $enterprise, EnterpriseViewRequest $enterpriseViewRequest): View
     {
+        if (is_null($enterprise->id)) {
+            $enterprise = $this->user->enterprise;
+        }
+
         $this->shareBreadcrumbs(['name' => $enterprise->name]);
 
         return view('pages.enterprises.show', ['enterprise' => $enterprise]);

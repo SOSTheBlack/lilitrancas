@@ -9,7 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 /**
  * Trait UserAuth
  *
- * @property Authenticatable|User user
+ * @property User user
  *
  * @package App\Helpers
  */

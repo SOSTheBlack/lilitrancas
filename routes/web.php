@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('enterprise')->namespace('Enterprises')->group(function () {
         Route::get('/new')->name('enterprise.new')->uses('EnterpriseNewController');
         Route::get('/')->name('enterprise.index')->uses('EnterpriseIndexController');
+        Route::get('/me')->name('enterprise.me')->uses('EnterpriseShowController');
         Route::get('/{enterprise}')->name('enterprise.view')->uses('EnterpriseShowController');
         Route::get('/{enterprise}/edit')->name('enterprise.edit')->uses('EnterpriseEditController');
     });

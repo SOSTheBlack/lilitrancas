@@ -17,29 +17,29 @@ use Illuminate\Support\Carbon;
 /**
  * App\Models\Enterprise
  *
- * @property int                                           $id
- * @property int                                           $user_id
- * @property string                                        $username
- * @property bool                                          $active
- * @property string                                        $name
- * @property string                            $logo
- * @property string                            $city
- * @property string                            $country
- * @property string                            $description
- * @property string                            $link_redirect
- * @property string                            $document_type
- * @property int                               $document_number
- * @property Carbon|null                       $created_at
- * @property Carbon|null                       $updated_at
- * @property string|null                       $deleted_at
- * @property-read Collection|Influencer[]      $influencers
- * @property-read int|null                     $influencers_count
- * @property-read Collection|SocialMediaLink[] $links
- * @property-read int|null                     $links_count
- * @property-read User                         $owner
- * @property-read Collection|User[]            $users
- * @property-read int|null                     $users_count
- * @method static EnterpriseFactory factory(...$parameters)
+ * @property int $id
+ * @property int $user_id
+ * @property string $username
+ * @property bool $active
+ * @property string $name
+ * @property string $logo
+ * @property string $city
+ * @property string $country
+ * @property string $description
+ * @property string $link_redirect
+ * @property string $document_type
+ * @property int $document_number
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read Collection|\App\Models\Influencer[] $influencers
+ * @property-read int|null $influencers_count
+ * @property-read Collection|\App\Models\SocialMediaLink[] $links
+ * @property-read int|null $links_count
+ * @property-read \App\Models\User $owner
+ * @property-read Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
+ * @method static \Database\Factories\EnterpriseFactory factory(...$parameters)
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
  * @method static Builder|Enterprise query()
