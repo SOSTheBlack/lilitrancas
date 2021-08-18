@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Profiles;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProfilesFactory extends Factory
@@ -12,7 +12,7 @@ class ProfilesFactory extends Factory
      *
      * @var string
      */
-    protected $model = Profiles::class;
+    protected $model = Profile::class;
 
     /**
      * Define the model's default state.

@@ -3,7 +3,7 @@
 namespace App\Observers\Users;
 
 use App\Models\User;
-use App\Observers\User\Resources\UserCreatedObserver;
+use App\Observers\Users\Resources\UserCreatedObserver;
 use Throwable;
 
 /**
@@ -23,6 +23,7 @@ class UserObserver
     {
         try {
             $userCreatedObserver = new UserCreatedObserver($user);
+            $userCreatedObserver->givePermissions();
             $userCreatedObserver->saveGravatarInProfile();
         } catch (Throwable $exception) {
             app('sentry')->captureException($exception);

@@ -5,6 +5,7 @@ namespace App\Observers\Users\Resources;
 use App\Helpers\UiAvatars\UiAvatar;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 use Throwable;
 
 /**
@@ -18,11 +19,6 @@ class UserCreatedObserver
      * @var User
      */
     private User $user;
-
-    /**
-     * @var DB
-     */
-    private DB $db;
 
     /**
      * UserCreatedObserver constructor.
@@ -52,5 +48,13 @@ class UserCreatedObserver
         } finally {
             $this->user->profile()->updateOrCreate(['user_id' => $this->user->id], ['avatar' => $avatar]);
         }
+    }
+
+    /**
+     * @return void
+     */
+    public function givePermissions(): void
+    {
+        $this->user->assignRole(Role::findByName('influencer'));
     }
 }
