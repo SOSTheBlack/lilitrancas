@@ -10,18 +10,16 @@ Auth::routes(['verify' => true]);
 //    Socialite::driver('instagram')->redirect()
 //);
 
-//dd(
-//
-//
-//$instagram = \SOSTheBlack\Instagram\Instagram::withCredentials(
-//    new \GuzzleHttp\Client(),
-//    'lilitrancas_boxbraids',
-//    'delfinavidalonga', Cache::driver('instagram')),
-//$instagram->login(),
-//$instagram->saveSession(),
-//$account = $instagram,
-////$account->getUsername()
-//);
+dd(
+$instagram = \SOSTheBlack\Instagram\Instagram::withCredentials(
+    'lilitrancas_boxbraids',
+    'delfinavidalonga',
+    Cache::driver('instagram'),
+    new \GuzzleHttp\Client(),
+    ),
+$instagram->login(),
+$instagram->saveSession(),
+);
 
 Route::middleware('auth')->group(function () {
 

@@ -76,19 +76,21 @@ class Instagram
     }
 
     /**
-     * @param ClientInterface $client
-     * @param string $username
-     * @param string $password
-     * @param CacheInterface $cache
+     * @param  string           $username
+     * @param  string           $password
+     * @param  ClientInterface  $client
+     * @param  CacheInterface   $cache
      *
      * @return Instagram
      */
-    public static function withCredentials(ClientInterface $client, $username, $password, $cache)
+    public static function withCredentials(string $username, string $password, CacheInterface $cache, ClientInterface $client): Instagram
     {
         static::$instanceCache = $cache;
+
         $instance = new self($client);
         $instance->sessionUsername = $username;
         $instance->sessionPassword = $password;
+
         return $instance;
     }
 
@@ -1772,7 +1774,7 @@ class Instagram
      * @throws InstagramException
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function login($force = false, $twoStepVerificator = null)
+    public function login(bool $force = false, null|bool|TwoStepVerificationInterface $twoStepVerificator = null)
     {
         if ($this->sessionUsername == null || $this->sessionPassword == null) {
             throw new InstagramAuthException("User credentials not provided");
