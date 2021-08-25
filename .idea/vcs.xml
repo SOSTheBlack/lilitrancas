@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/instagram-php-scraper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/sostheblack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/sostheblack/instagram" vcs="Git" />
   </component>
 </project>

@@ -24,14 +24,6 @@ Auth::routes(['verify' => true]);
 //);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/auth/redirect', function () {
-        return Socialite::driver('facebook')->redirect();
-    });
-
-    Route::get('/auth/callback', function () {
-        $user = Socialite::driver('facebook')->user();
-         dd($user);
-    });
 
     Route::namespace('Dashboard')->group(function () {
         Route::get('/')->name('dashboard.index')->uses('IndexDashboardController');
