@@ -33,12 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "InstagramScraper\\": "src/InstagramScraper/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "InstagramScraper\\Tests\\": "tests/"
+            "SOSTheBlack\\Instagram\\": "src/"
         }
     },
     "support": {

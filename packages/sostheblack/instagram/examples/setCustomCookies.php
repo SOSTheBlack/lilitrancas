@@ -1,6 +1,6 @@
 <?php
 use Phpfastcache\Helper\Psr16Adapter;
-use InstagramScraper\Exception\InstagramException;
+use SOSTheBlack\Instagram\Exception\InstagramException;
 
 require __DIR__ . '/../vendor/autoload.php';
 

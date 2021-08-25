@@ -1,5 +1,5 @@
 <?php
-use InstagramScraper\Exception\InstagramException;
+use SOSTheBlack\Instagram\Exception\InstagramException;
 use Phpfastcache\Helper\Psr16Adapter;
 
 require __DIR__ . '/../vendor/autoload.php';

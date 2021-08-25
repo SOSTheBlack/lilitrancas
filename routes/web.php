@@ -13,7 +13,7 @@ Auth::routes(['verify' => true]);
 //dd(
 //
 //
-//$instagram = \InstagramScraper\Instagram::withCredentials(
+//$instagram = \SOSTheBlack\Instagram\Instagram::withCredentials(
 //    new \GuzzleHttp\Client(),
 //    'lilitrancas_boxbraids',
 //    'delfinavidalonga', Cache::driver('instagram')),

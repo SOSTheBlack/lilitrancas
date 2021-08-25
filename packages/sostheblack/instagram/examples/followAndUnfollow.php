@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../../../../vendor/autoload.php';
 
-use InstagramScraper\Instagram;
+use SOSTheBlack\Instagram\Instagram;
 use Phpfastcache\Helper\Psr16Adapter;
 
 $instagram  = Instagram::withCredentials(new \GuzzleHttp\Client(), 'login', 'password', new Psr16Adapter('Files'));

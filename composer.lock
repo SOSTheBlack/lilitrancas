@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b931445d340f78379b595730741c568b",
+    "content-hash": "47ea1d951bd2f096fcabceebdc71e9ef",
     "packages": [
         {
             "name": "ashallendesign/short-url",
@@ -4906,7 +4906,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/sostheblack/instagram",
-                "reference": "d2358b5d54946fd25b6f5c446783244516416250"
+                "reference": "2ccdad6def85daa6c9710f5aec49b179988d0404"
             },
             "require": {
                 "ext-curl": "*",
@@ -4924,12 +4924,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "InstagramScraper\\": "src/InstagramScraper/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "InstagramScraper\\Tests\\": "tests/"
+                    "SOSTheBlack\\InstagramScraper\\": "src/"
                 }
             },
             "license": [
