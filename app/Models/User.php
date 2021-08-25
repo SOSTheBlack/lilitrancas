@@ -8,8 +8,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
@@ -24,26 +24,26 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * App\Models\User
  *
- * @property int                                                        $id
- * @property string                                                     $name
- * @property string                                                     $email
- * @property Carbon|null                                                $email_verified_at
- * @property string                                                     $password
- * @property string|null                                                $remember_token
- * @property Carbon|null                                                $created_at
- * @property Carbon|null                                                $updated_at
- * @property-read Enterprise|null                                       $enterprise
- * @property-read Collection|User[]                                     $enterprises
- * @property-read int|null                                              $enterprises_count
- * @property-read string                                                $short_name
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read \App\Models\Enterprise|null $enterprise
+ * @property-read Collection|User[] $enterprises
+ * @property-read int|null $enterprises_count
+ * @property-read string $short_name
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
- * @property-read int|null                                              $notifications_count
- * @property-read Collection|Permission[]                               $permissions
- * @property-read int|null                                              $permissions_count
- * @property-read Profile                                               $profile
- * @property-read Collection|Role[]                                     $roles
- * @property-read int|null                                              $roles_count
- * @method static UserFactory factory(...$parameters)
+ * @property-read int|null $notifications_count
+ * @property-read Collection|Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \App\Models\Profile|null $profile
+ * @property-read Collection|Role[] $roles
+ * @property-read int|null $roles_count
+ * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User permission($permissions)
@@ -113,11 +113,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Define a many-to-many relationship.
+     * Define a one-to-one relationship.
      *
-     * @return BelongsToMany
+     * @return HasOne
      */
-    public function enterprise()
+    public function enterprise(): HasOne
     {
         return $this->hasOne(Enterprise::class);
     }
@@ -136,10 +136,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasOne
      */
-    public function profile(): BelongsTo
+    public function profile(): HasOne
     {
-        return $this->belongsTo(Profile::class);
+        return $this->hasOne(Profile::class);
     }
 }

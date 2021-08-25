@@ -5,6 +5,7 @@ namespace App\Observers\Users\Resources;
 use App\Helpers\UiAvatars\UiAvatar;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Throwable;
 
@@ -34,6 +35,8 @@ class UserCreatedObserver
      * Create the avatar for new profile.
      *
      * @return void
+     *
+     * @throws Throwable
      */
     public function saveGravatarInProfile(): void
     {
@@ -42,11 +45,11 @@ class UserCreatedObserver
 
             $gravatar->exists($this->user->email);
 
-            $avatar = $gravatar->get($this->user->email);
+            $avatarUrl = $gravatar->get($this->user->email);
         } catch (Throwable $exception) {
-            $avatar = UiAvatar::getUrl($this->user->name);
+            $avatarUrl = UiAvatar::getUrl($this->user->name);
         } finally {
-            $this->user->profile()->updateOrCreate(['user_id' => $this->user->id], ['avatar' => $avatar]);
+            $this->user->profile->saveOrFail(['avatar' => $avatarUrl]);
         }
     }
 
@@ -56,5 +59,13 @@ class UserCreatedObserver
     public function givePermissions(): void
     {
         $this->user->assignRole(Role::findByName('influencer'));
+    }
+
+    /**
+     * @return void
+     */
+    public function createProfile(): void
+    {
+        $this->user->profile()->updateOrCreate(['user_id' => $this->user->id], ['username' => Str::slug($this->user->name)]);
     }
 }

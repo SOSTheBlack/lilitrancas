@@ -17,6 +17,8 @@
         "laravel/framework": "^8.26.1",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
+        "phpfastcache/phpfastcache": "^8.0",
+        "raiym/instagram-php-scraper": "^0.11.1",
         "sentry/sentry-laravel": "^2.7",
         "spatie/laravel-permission": "^4.2",
         "yajra/laravel-datatables": "^1.5"

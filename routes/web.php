@@ -1,11 +1,38 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;;
+use Illuminate\Support\Facades\Route;
+use Phpfastcache\Helper\Psr16Adapter;
 
 Auth::routes(['verify' => true]);
 
+//dd(
+//    Socialite::driver('instagram')->redirect()
+//);
+
+//dd(
+//
+//
+//$instagram = \InstagramScraper\Instagram::withCredentials(
+//    new \GuzzleHttp\Client(),
+//    'lilitrancas_boxbraids',
+//    'delfinavidalonga', Cache::driver('instagram')),
+//$instagram->login(),
+//$instagram->saveSession(),
+//$account = $instagram,
+////$account->getUsername()
+//);
+
 Route::middleware('auth')->group(function () {
+    Route::get('/auth/redirect', function () {
+        return Socialite::driver('facebook')->redirect();
+    });
+
+    Route::get('/auth/callback', function () {
+        $user = Socialite::driver('facebook')->user();
+         dd($user);
+    });
+
     Route::namespace('Dashboard')->group(function () {
         Route::get('/')->name('dashboard.index')->uses('IndexDashboardController');
     });
@@ -22,7 +49,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('user')->namespace('Users')->group(function () {
 //        Route::get('/')->name('user.index')->uses('UserIndexController');
-        Route::get('/me')->name('user.me')->uses('MeUserController');
+        Route::get('/me')->name('user.me')->uses('UserShowController');
         Route::get('/{user}')->name('user.show')->uses('ShowUserController');
     });
 

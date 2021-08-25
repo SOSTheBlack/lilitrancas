@@ -20,8 +20,10 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->string('username')->nullable();
             $table->string('bio')->nullable();
-            $table->string('avatar')->nullable();
+            $table->longText('avatar')->nullable();
+            $table->boolean('active');
             $table->timestamps();
             $table->softDeletes();
         });
