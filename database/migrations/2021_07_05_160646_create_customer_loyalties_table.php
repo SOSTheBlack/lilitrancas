@@ -16,7 +16,7 @@ class CreateCustomerLoyaltiesTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_loyalties', function (Blueprint $table) {
+        Schema::create('customer_fidelity', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Enterprise::class);

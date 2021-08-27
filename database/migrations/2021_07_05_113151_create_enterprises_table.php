@@ -20,15 +20,12 @@ class CreateEnterprisesTable extends Migration
         Schema::create('enterprise', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->foreignIdFor(\AshAllenDesign\ShortURL\Models\ShortURL::class);
+            $table->string('username')->nullable();
             $table->boolean('active');
             $table->string('name');
-            $table->text('logo');
-            $table->text('description');
-            $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->text('link_redirect');
-            $table->string('document_type');
-            $table->bigInteger('document_number');
+            $table->text('logo')->nullable();
+            $table->text('bio');
             $table->timestamps();
             $table->softDeletes();
         });

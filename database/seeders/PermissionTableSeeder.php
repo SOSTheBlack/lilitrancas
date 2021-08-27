@@ -56,18 +56,19 @@ class PermissionTableSeeder extends Seeder
     {
         $role = Role::findOrCreate('super-admin');
 
-        try {
-            $user = User::firstOrCreate(['email' => 'jeancesargarcia@gmail.com'], [
-                'name' => 'Jean C. Garcia',
-                'email' => 'jeancesargarcia@gmail.com',
-            ]);
-        } catch (ModelNotFoundException $exception) {
-            $user = User::factory()->create([
-                'name' => 'Jean C. Garcia',
-                'email' => 'jeancesargarcia@gmail.com',
-            ]);
-        } finally {
-            $user->assignRole($role);
-        }
+//        try {
+//            $user = User::firstOrCreate(['email' => 'jeancesargarcia@gmail.com'], [
+//                'name' => 'Jean C. Garcia',
+//                'email' => 'jeancesargarcia@gmail.com',
+//            ]);
+//        } catch (ModelNotFoundException $exception) {
+//            $user = User::factory()->create([
+//                'name' => 'Jean C. Garcia',
+//                'email' => 'jeancesargarcia@gmail.com',
+//            ]);
+//        } finally {
+//            dd($user);
+//            $user->assignRole($role);
+//        }
     }
 }

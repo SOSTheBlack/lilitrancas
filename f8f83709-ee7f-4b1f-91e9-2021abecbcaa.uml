@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>f8f83709-ee7f-4b1f-91e9-2021abecbcaa</OriginalElement>
+  <nodes>
+    <node x="0.0" y="395.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.social_media_links</node>
+    <node x="305.5" y="0.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users</node>
+    <node x="235.0" y="395.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.integration_accounts</node>
+    <node x="423.0" y="238.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.model_has_roles</node>
+    <node x="480.5" y="314.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.short_urls</node>
+    <node x="351.875" y="157.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.roles</node>
+    <node x="0.0" y="81.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.enterprises</node>
+    <node x="267.0" y="81.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.user_enterprises</node>
+    <node x="163.625" y="157.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.permissions</node>
+    <node x="463.0" y="395.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.short_url_visits</node>
+    <node x="559.4666666666667" y="0.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.enterprise_catalogs</node>
+    <node x="546.0" y="81.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.customer_loyalties</node>
+    <node x="0.0" y="471.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.password_resets</node>
+    <node x="0.0" y="238.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.model_has_permissions</node>
+    <node x="437.0" y="81.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.profiles</node>
+    <node x="134.0" y="81.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.influencers</node>
+    <node x="196.0" y="471.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.migrations</node>
+    <node x="19.0" y="314.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.social_media</node>
+    <node x="265.5" y="314.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.integrations</node>
+    <node x="220.0" y="238.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.role_has_permissions</node>
+    <node x="353.0" y="471.0">f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.failed_jobs</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.social_media_links" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.social_media" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.influencers" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="190.5" y="56.0" />
+      <point x="342.0" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.user_enterprises" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.short_url_visits" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.short_urls" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.model_has_permissions" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.permissions" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="100.0" y="213.0" />
+      <point x="223.625" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.role_has_permissions" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.roles" relationship="REFERENCES">
+      <point x="45.75" y="-15.5" />
+      <point x="357.25" y="213.0" />
+      <point x="386.875" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.enterprises" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="57.0" y="56.0" />
+      <point x="342.0" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.customer_loyalties" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.enterprise_catalogs" relationship="REFERENCES">
+      <point x="41.5" y="-15.5" />
+      <point x="670.5" y="56.0" />
+      <point x="644.9666666666667" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.role_has_permissions" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.permissions" relationship="REFERENCES">
+      <point x="-45.75" y="-15.5" />
+      <point x="265.75" y="213.0" />
+      <point x="223.625" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.profiles" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="481.5" y="56.0" />
+      <point x="342.0" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.integration_accounts" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.integrations" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.model_has_roles" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.roles" relationship="REFERENCES">
+      <point x="0.0" y="-15.5" />
+      <point x="498.0" y="213.0" />
+      <point x="386.875" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.customer_loyalties" target="f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.users" relationship="REFERENCES">
+      <point x="-41.5" y="-15.5" />
+      <point x="587.5" y="56.0" />
+      <point x="342.0" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="404.0" y="251.0" />
+  <SelectedNodes>
+    <node>f8f83709-ee7f-4b1f-91e9-2021abecbcaa.TABLE:lilitrancas.short_urls</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

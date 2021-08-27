@@ -7,6 +7,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -21,6 +22,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\IntegrationAccount[] $accounts
+ * @property-read int|null $accounts_count
  * @method static \Database\Factories\IntegrationFactory factory(...$parameters)
  * @method static Builder|Integration newModelQuery()
  * @method static Builder|Integration newQuery()
@@ -44,14 +47,32 @@ class Integration extends Model
     use SoftDeletes;
 
     /**
+     * @const array[string]
+     */
+    public const SOCIAL_MEDIA = [
+        'Instagram',
+        'Facebook',
+        'Twitter',
+        'Youtube',
+        'TikTok',
+        'WhatsApp',
+        'Outro'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = ['name', 'slug', 'description', 'settings'];
 
-    public function accounts()
+    /**
+     * Define a many-to-many relationship.
+     *
+     * @return BelongsToMany
+     */
+    public function accounts(): BelongsToMany
     {
-        $this->belongsToMany(IntegrationAccount::class);
+        return $this->belongsToMany(IntegrationAccount::class);
     }
 }
