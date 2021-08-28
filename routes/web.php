@@ -6,6 +6,8 @@ use Phpfastcache\Helper\Psr16Adapter;
 
 Auth::routes(['verify' => true]);
 
+//dd(\App\Models\User::factory()->create());
+
 //dd(
 //    Socialite::driver('instagram')->redirect()
 //);

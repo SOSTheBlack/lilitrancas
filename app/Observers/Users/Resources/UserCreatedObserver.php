@@ -49,23 +49,7 @@ class UserCreatedObserver
         } catch (Throwable $exception) {
             $avatarUrl = UiAvatar::getUrl($this->user->name);
         } finally {
-            $this->user->profile->saveOrFail(['avatar' => $avatarUrl]);
+            $this->user->saveOrFail(['avatar' => $avatarUrl]);
         }
-    }
-
-    /**
-     * @return void
-     */
-    public function givePermissions(): void
-    {
-        $this->user->assignRole(Role::findByName('influencer'));
-    }
-
-    /**
-     * @return void
-     */
-    public function createProfile(): void
-    {
-        $this->user->profile()->updateOrCreate(['user_id' => $this->user->id], ['username' => Str::slug($this->user->name)]);
     }
 }

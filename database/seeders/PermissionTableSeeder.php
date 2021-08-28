@@ -27,7 +27,7 @@ class PermissionTableSeeder extends Seeder
 
         $this->createSuperAdmin();
 
-        Role::create(['name' => 'manager']);
+        Role::create(['name' => 'enterpriser']);
         Role::create(['name' => 'influencer']);
         Role::create(['name' => 'client']);
 

@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Observers\Users\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use SocialiteProviders\Manager\SocialiteWasCalled;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,10 +19,6 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        SocialiteWasCalled::class => [
-            'SocialiteProviders\\Instagram\\InstagramExtendSocialite@handle',
-            'SocialiteProviders\\Facebook\\FacebookExtendSocialite@handle',
-        ],
     ];
 
     /**
@@ -31,6 +28,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+//        User::observe(UserObserver::class);
     }
 }

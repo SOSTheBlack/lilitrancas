@@ -17,7 +17,7 @@ class CreateEnterprisesTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('enterprise', function (Blueprint $table) {
+        Schema::create('enterprises', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(\AshAllenDesign\ShortURL\Models\ShortURL::class);

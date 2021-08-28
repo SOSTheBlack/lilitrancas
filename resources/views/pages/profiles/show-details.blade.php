@@ -9,7 +9,6 @@
         </div>
     </div>
 </div>
-@dd($user)
 
   <!-- Modal Trigger -->
 {{--  <a class="waves-effect waves-light btn modal-trigger" href="#socialMediaInstagramLoginModal">Modal</a>--}}

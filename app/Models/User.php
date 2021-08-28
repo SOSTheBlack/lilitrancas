@@ -48,7 +48,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $notifications_count
  * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read \App\Models\Profile|null $profile
  * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
@@ -92,6 +91,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -155,10 +155,12 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return HasOne
+     * @param  string  $username
+     *
+     * @return string
      */
-    public function profile(): HasOne
+    public function setUsernameAttribute(string $username): string
     {
-        return $this->hasOne(Profile::class);
+        return Str::slug($username);
     }
 }
