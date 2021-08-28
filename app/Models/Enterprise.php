@@ -17,6 +17,17 @@ use Illuminate\Support\Carbon;
 /**
  * App\Models\Enterprise
  *
+ * @property int $id
+ * @property int $user_id
+ * @property int $short_u_r_l_id
+ * @property string|null $username
+ * @property bool $active
+ * @property string $name
+ * @property string|null $logo
+ * @property string $bio
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $deleted_at
  * @property-read Collection|\App\Models\Influencer[] $influencers
  * @property-read int|null $influencers_count
  * @property-read \App\Models\User $owner
@@ -26,6 +37,17 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
  * @method static Builder|Enterprise query()
+ * @method static Builder|Enterprise whereActive($value)
+ * @method static Builder|Enterprise whereBio($value)
+ * @method static Builder|Enterprise whereCreatedAt($value)
+ * @method static Builder|Enterprise whereDeletedAt($value)
+ * @method static Builder|Enterprise whereId($value)
+ * @method static Builder|Enterprise whereLogo($value)
+ * @method static Builder|Enterprise whereName($value)
+ * @method static Builder|Enterprise whereShortURLId($value)
+ * @method static Builder|Enterprise whereUpdatedAt($value)
+ * @method static Builder|Enterprise whereUserId($value)
+ * @method static Builder|Enterprise whereUsername($value)
  * @mixin Eloquent
  */
 class Enterprise extends Model

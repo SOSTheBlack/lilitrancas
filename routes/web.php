@@ -31,25 +31,25 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/logout')->name('logout')->uses('Auth\LoginController@logout');
 
-    Route::prefix('enterprise')->namespace('Enterprises')->group(function () {
-        Route::get('/new')->name('enterprise.new')->uses('EnterpriseNewController');
-        Route::get('/')->name('enterprise.index')->uses('EnterpriseIndexController');
-        Route::get('/me')->name('enterprise.me')->uses('EnterpriseShowController');
-        Route::get('/{enterprise}')->name('enterprise.view')->uses('EnterpriseShowController');
-        Route::get('/{enterprise}/edit')->name('enterprise.edit')->uses('EnterpriseEditController');
+    Route::prefix('enterprises')->namespace('Enterprises')->group(function () {
+        Route::get('/new')->name('enterprises.new')->uses('EnterpriseNewController');
+        Route::get('/')->name('enterprises.index')->uses('EnterpriseIndexController');
+        Route::get('/me')->name('enterprises.me')->uses('EnterpriseShowController');
+        Route::get('/{enterprises}')->name('enterprises.view')->uses('EnterpriseShowController');
+        Route::get('/{enterprises}/edit')->name('enterprises.edit')->uses('EnterpriseEditController');
     });
 
-    Route::prefix('user')->namespace('Users')->group(function () {
-//        Route::get('/')->name('user.index')->uses('UserIndexController');
-        Route::get('/me')->name('user.me')->uses('UserShowController');
-        Route::get('/{user}')->name('user.show')->uses('ShowUserController');
+    Route::prefix('users')->namespace('Users')->group(function () {
+//        Route::get('/')->name('users.index')->uses('UserIndexController');
+        Route::get('/me')->name('users.me')->uses('UserShowController');
+        Route::get('/{user}')->name('users.show')->uses('ShowUserController');
     });
 
-    Route::prefix('marketplace')->namespace('Marketplaces')->group(function () {
-        Route::get('/')->name('marketplace.index')->uses('MarketplaceIndexController');
+    Route::prefix('marketplaces')->namespace('Marketplaces')->group(function () {
+        Route::get('/')->name('marketplaces.index')->uses('MarketplaceIndexController');
     });
 });
 
 Route::prefix('/e')->namespace('Enterprises')->group(function () {
-    Route::get('/{enterprise:username}')->name('enterprise.show-public')->uses('EnterpriseShowPublicController');
+    Route::get('/{enterprise:username}')->name('enterprises.show-public')->uses('EnterpriseShowPublicController');
 });

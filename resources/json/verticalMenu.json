@@ -7,24 +7,24 @@
             "slug": "dashboard",
             "activate": "DashboardDropdown",
             "icon": "dashboard",
-            "permission": ""
+            "permission": "enterpriser|influencer"
         },
         {
-            "url": "marketplace.index",
+            "url": "marketplaces.index",
             "i18n": "Marketplace",
             "name": "Marketplace",
             "slug": "marketplace",
             "activate": "DashboardDropdown",
             "icon": "business_center",
-            "permission": ""
+            "permission": "enterpriser|influencer"
         },
         {
-            "url": "enterprise.index",
-            "permission": "enterprise.index",
+            "url": "enterprises.index",
             "name": "Empresas",
             "i18n": "Enterprises",
             "slug": "enterprise",
-            "icon": "settings"
+            "icon": "settings",
+            "permission": "super-admin"
         }
     ]
 }

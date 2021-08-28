@@ -2,10 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -25,18 +22,7 @@ class PermissionTableSeeder extends Seeder
     {
         $this->resetCached();
 
-        $this->createSuperAdmin();
-
-        Role::create(['name' => 'enterpriser']);
-        Role::create(['name' => 'influencer']);
-        Role::create(['name' => 'client']);
-
-        Permission::create(['name' => 'enterprise.index']);
-        Permission::create(['name' => 'enterprise.edit']);
-        Permission::create(['name' => 'enterprise.view']);
-        Permission::create(['name' => 'enterprise.delete']);
-        Permission::create(['name' => 'enterprise.store']);
-        Permission::create(['name' => 'enterprise.update']);
+        $this->createRoles();
     }
 
     /**
@@ -51,24 +37,16 @@ class PermissionTableSeeder extends Seeder
 
     /**
      * @return void
+     *
+     * @noinspection PhpIncompatibleReturnTypeInspection
      */
-    private function createSuperAdmin(): void
+    private function createRoles(): void
     {
-        $role = Role::findOrCreate('super-admin');
-
-//        try {
-//            $user = User::firstOrCreate(['email' => 'jeancesargarcia@gmail.com'], [
-//                'name' => 'Jean C. Garcia',
-//                'email' => 'jeancesargarcia@gmail.com',
-//            ]);
-//        } catch (ModelNotFoundException $exception) {
-//            $user = User::factory()->create([
-//                'name' => 'Jean C. Garcia',
-//                'email' => 'jeancesargarcia@gmail.com',
-//            ]);
-//        } finally {
-//            dd($user);
-//            $user->assignRole($role);
-//        }
+        collect([
+            'super-admin',
+            'customer',
+            'influencer',
+            'enterpriser'
+        ])->each(fn(string $role): Role => Role::create(['name' => $role]));
     }
 }

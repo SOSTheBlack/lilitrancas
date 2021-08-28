@@ -45,7 +45,7 @@
         {{-- Foreach menu item starts --}}
         @if(!empty($menuData[0]) && isset($menuData[0]))
             @foreach ($menuData[0]->menu as $menu)
-                @can($menu->permission)
+                @role($menu->permission)
                     @if(isset($menu->navheader))
                         <li class="navigation-header">
                             <a class="navigation-header-text">{{ $menu->navheader }}</a>
@@ -82,7 +82,7 @@
                             @endif
                         </li>
                     @endif
-                @endcan
+                @endrole
             @endforeach
         @endif
     </ul>

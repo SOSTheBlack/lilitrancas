@@ -30,7 +30,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $name
  * @property string $email
  * @property string $password
- * @property string $username
+ * @property string|null $username
  * @property string|null $avatar
  * @property string|null $bio
  * @property string|null $document_type
@@ -91,7 +91,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'username',
         'password',
     ];
 
