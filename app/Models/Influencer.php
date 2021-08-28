@@ -11,8 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $user_id
  * @property int $enterprise_id
- * @property string $fantasy_name
- * @property string $link_share
+ * @property int $short_u_r_l_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -23,9 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereEnterpriseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereFantasyName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereLinkShare($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereShortURLId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Influencer whereUserId($value)
  * @mixin \Eloquent

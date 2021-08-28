@@ -20,9 +20,10 @@ class CreateIntegrationAccountsTable extends Migration
         Schema::create('integration_accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Integration::class);
-            $table->string('ref_type');
-            $table->bigInteger('ref_id')->unsigned();
+            $table->unsignedBigInteger('ref_id');
+            $table->string('ref_model');
             $table->string('name');
+            $table->string('username');
             $table->boolean('active')->default(true);
             $table->json('settings')->nullable();
             $table->timestamp('resynced_at');

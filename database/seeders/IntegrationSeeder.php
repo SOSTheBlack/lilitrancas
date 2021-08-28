@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\SocialMedia;
+use App\Models\Integration;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -11,20 +11,8 @@ use Illuminate\Support\Str;
  *
  * @package Database\Seeders
  */
-class SocialMediaSeeder extends Seeder
+class IntegrationSeeder extends Seeder
 {
-    /**
-     * @const array[string]
-     */
-    private const SOCIAL_MEDIA = [
-        'Instagram',
-        'Facebook',
-        'Twitter',
-        'Youtube',
-        'TikTok',
-        'WhatsApp',
-        'Outro'
-    ];
 
     /**
      * Run the database seeds.
@@ -33,8 +21,8 @@ class SocialMediaSeeder extends Seeder
      */
     public function run(): void
     {
-        foreach (self::SOCIAL_MEDIA as $socialMedia) {
-            SocialMedia::create([
+        foreach (Integration::SOCIAL_MEDIA as $socialMedia) {
+            Integration::create([
                 'name' => Str::title($socialMedia),
                 'slug' => Str::slug($socialMedia),
             ]);

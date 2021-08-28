@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $enterprise_id
  * @property string $name
+ * @property string|null $description
  * @property float|null $price
  * @property int $active
  * @property string $started_at
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereEndedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereEnterpriseId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EnterpriseCatalog whereId($value)

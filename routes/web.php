@@ -6,32 +6,24 @@ use Phpfastcache\Helper\Psr16Adapter;
 
 Auth::routes(['verify' => true]);
 
+//dd(\App\Models\User::factory()->create());
+
 //dd(
 //    Socialite::driver('instagram')->redirect()
 //);
 
 //dd(
-//
-//
-//$instagram = \InstagramScraper\Instagram::withCredentials(
-//    new \GuzzleHttp\Client(),
+//$instagram = \SOSTheBlack\Instagram\Instagram::withCredentials(
 //    'lilitrancas_boxbraids',
-//    'delfinavidalonga', Cache::driver('instagram')),
+//    'delfinavidalonga',
+//    Cache::driver('instagram'),
+//    new \GuzzleHttp\Client(),
+//    ),
 //$instagram->login(),
 //$instagram->saveSession(),
-//$account = $instagram,
-////$account->getUsername()
 //);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/auth/redirect', function () {
-        return Socialite::driver('facebook')->redirect();
-    });
-
-    Route::get('/auth/callback', function () {
-        $user = Socialite::driver('facebook')->user();
-         dd($user);
-    });
 
     Route::namespace('Dashboard')->group(function () {
         Route::get('/')->name('dashboard.index')->uses('IndexDashboardController');

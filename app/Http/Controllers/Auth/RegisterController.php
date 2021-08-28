@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\UiAvatars\UiAvatar;
 use App\Models\User;
+use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
 use Illuminate\Contracts\Validation\Validator as Validation;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
+use Throwable;
 
 /**
  * Class RegisterController.
@@ -55,6 +61,8 @@ class RegisterController extends AuthController
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required', 'string', 'min:3', 'max:20', 'unique:users'],
+            'role' => ['required', 'string', Rule::in(['influencer', 'enterpriser'])]
         ]);
     }
 
@@ -70,7 +78,55 @@ class RegisterController extends AuthController
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['password'])
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  Request  $request
+     * @param  mixed    $user
+     *
+     * @return void
+     */
+    protected function registered(Request $request, User $user): void
+    {
+        $user->assignRole(Role::findByName($request->get('role')));
+
+        try {
+            $user->username = $request->get('username');
+            $user->avatar = $this->getGravatar($user);
+
+            $user->saveOrFail();
+        } catch (Throwable $e) {
+            app('sentry')->captureException($e);
+        }
+    }
+
+    /**
+     * Create the avatar for new profile.
+     *
+     * @param  User  $user
+     *
+     * @return string
+     *
+     */
+    public function getGravatar(User $user): string
+    {
+        try {
+            $gravatar = app('gravatar');
+
+            if ($gravatar->exists($user->email)) {
+                $avatarUrl = $gravatar->get($user->email);
+            }
+        } catch (InvalidEmailException $invalidEmailException) {
+        } finally {
+            if (! isset($avatarUrl)) {
+                $avatarUrl = UiAvatar::getUrl($user->name);
+            }
+
+            return $avatarUrl;
+        }
     }
 }

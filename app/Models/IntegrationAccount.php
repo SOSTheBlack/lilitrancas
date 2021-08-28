@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int $integration_id
- * @property string $ref_type
  * @property int $ref_id
+ * @property string $ref_model
  * @property string $name
+ * @property string $username
  * @property int $active
  * @property mixed|null $settings
  * @property string $resynced_at
@@ -30,10 +31,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereIntegrationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereRefId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereRefType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereRefModel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereResyncedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereSettings($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|IntegrationAccount whereUsername($value)
  * @mixin \Eloquent
  */
 class IntegrationAccount extends Model

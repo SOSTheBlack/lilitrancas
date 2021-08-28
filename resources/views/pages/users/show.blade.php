@@ -23,7 +23,7 @@
                 <div class="col s12 m7">
                     <div class="display-flex media">
                         <a href="#" class="avatar">
-                            <img src="{{ $user->profile->avatar }}" alt="users view avatar" class="z-depth-4 circle"
+                            <img src="{{ $user->avatar }}" alt="users view avatar" class="z-depth-4 circle"
                                  height="64" width="64">
                         </a>
                         <div class="media-body">
@@ -49,25 +49,32 @@
             <div class="divider"></div>
             <div class="row">
                 <div class="col s12">
-                    <h6><span class="grey-text">{{ $user->profile->bio }}</span></h6>
+                    <h6><span class="grey-text">{{ $user->bio }}</span></h6>
                 </div>
             </div>
         </div>
         <!-- users view card details ends -->
     </div>
     <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col m3"><a href="#influencer">{{ __('Influenciador(a)') }}</a></li>
-          <li class="tab col m3"><a href="#enterprise">{{ __('Empresa') }}</a></li>
-          <li class="tab col m3"><a href="#security">Segurança</a></li>
-          <li class="tab col m3"><a href="#test4">Test 4</a></li>
-        </ul>
-      </div>
-      <div id="influencer" class="col s12"><div class="car-content">@include('pages.profiles.show-details')</div></div>
-      <div id="enterprise" class="col s12">@include('pages.enterprises.show-details', ['enterprise' => $user->enterprise])</div>
-      <div id="security" class="col s12">Test 3</div>
-      <div id="test4" class="col s12">Test 4</div>
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col m3"><a href="#influencer">{{ __('Geral') }}</a></li>
+                @role('influencer')
+                <li class="tab col m3"><a href="#influencer">{{ __('Influenciador(a)') }}</a></li>
+                @endrole
+                @role('enterpriser')
+                <li class="tab col m3"><a href="#enterprise">{{ __('Empresa') }}</a></li>
+                @endrole
+                <li class="tab col m3"><a href="#security">{{ __('Segurança') }}</a></li>
+            </ul>
+        </div>
+        <div id="influencer" class="col s12">
+            <div class="car-content">@include('pages.profiles.show-details')</div>
+        </div>
+        <div id="enterprise" class="col s12"></div>
+        {{--      <div id="enterprise" class="col s12">@include('pages.enterprises.show-details', ['enterprise' => $user->enterprise])</div>--}}
+        <div id="security" class="col s12">Test 3</div>
+        <div id="test4" class="col s12">Test 4</div>
     </div>
 @endsection
 

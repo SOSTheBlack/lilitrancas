@@ -23,8 +23,6 @@ class UserObserver
     {
         try {
             $userCreatedObserver = new UserCreatedObserver($user);
-            $userCreatedObserver->givePermissions();
-            $userCreatedObserver->createProfile();
             $userCreatedObserver->saveGravatarInProfile();
         } catch (Throwable $exception) {
             app('sentry')->captureException($exception);

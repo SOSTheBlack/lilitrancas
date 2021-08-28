@@ -20,8 +20,7 @@ class CreateInfluencersTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Enterprise::class);
-            $table->string('fantasy_name');
-            $table->text('link_share');
+            $table->foreignIdFor(\AshAllenDesign\ShortURL\Models\ShortURL::class);
             $table->timestamps();
             $table->softDeletes();
         });
