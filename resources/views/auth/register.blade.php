@@ -12,7 +12,7 @@
 {{-- page content --}}
 @section('content')
     <div id="register-page" class="row">
-        <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">
+        <div class="col s12 m10 l10 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">
             <form class="login-form" method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="row">
@@ -21,6 +21,15 @@
                         <p class="ml-4">{{ __('Quer ser cliente ou Influencer ' . config('app.name')) . ', cadastre-se aqui!' }}</p>
                     </div>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">mood</i>
@@ -36,7 +45,7 @@
                     </div>
                 </div>
                 <div class="row margin">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix pt-2">person_outline</i>
                         <input id="username" type="text" class="@error('username') is-invalid @enderror" name="username"
                                value="{{ old('username') }}"
@@ -48,9 +57,7 @@
                         </small>
                         @enderror
                     </div>
-                </div>
-                <div class="row margin">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix pt-2">mail_outline</i>
                         <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
                                value="{{ old('email') }}" autocomplete="email">
@@ -63,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row margin">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix pt-2">lock_outline</i>
                         <input id="password" type="password" class="@error('password') is-invalid @enderror"
                                name="password"
@@ -75,9 +82,7 @@
                         </small>
                         @enderror
                     </div>
-                </div>
-                <div class="row margin">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix pt-2">lock_outline</i>
                         <input id="password-confirm" type="password" name="password_confirmation"
                                autocomplete="new-password">
@@ -95,20 +100,26 @@
                         </p>
                         <p>
                             <label>
-                                <input name="role" type="radio" value="enterprise"/>
+                                <input name="role" type="radio" value="enterpriser"/>
                                 <span>{{ __('Empresa') }}</span>
                             </label>
                         </p>
+
                     </div>
+                    @error('role')
+                        <small class="red-text ml-7" role="alert">
+                            {{ $message }}
+                        </small>
+                        @enderror
                 </div>
-                <div class="row">
+                <div class="row margin">
                     <div class="input-field col s12">
                         <button type="submit"
                                 class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">{{ __('Registrar-se') }}</button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <p class="margin medium-small"><a
                                     href="{{ route('login')}}">{{ __('Já tem uma conta? Entre') }}</a></p>
                     </div>

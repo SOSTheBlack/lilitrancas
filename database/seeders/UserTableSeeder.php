@@ -18,8 +18,9 @@ class UserTableSeeder extends Seeder
      */
     private const ADMIN_DATA = [
         'name' => 'Super Admin',
-        'email' => 'super@admin.com'
-    ] ;
+        'email' => 'super@admin.com',
+        'username' => 'super-admin'
+    ];
 
     /**
      * Run the database seeds.
