@@ -25,8 +25,8 @@ class EnterpriseController extends Controller
     {
         $newBreadcrumbs[] = $breadcrumbs;
 
-        if ($this->user->can('settings.enterprise.index')) {
-            $newBreadcrumbs[] = ['link' => route('enterprise.index'), 'name' => __("Empresas")];
+        if ($this->user->can('settings.enterprises.index')) {
+            $newBreadcrumbs[] = ['link' => route('enterprises.index'), 'name' => __("Empresas")];
         }
 
         return parent::shareBreadcrumbs($newBreadcrumbs);

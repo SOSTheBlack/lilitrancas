@@ -25,9 +25,9 @@ Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
 
-    Route::namespace('Dashboard')->group(function () {
-        Route::get('/')->name('dashboard.index')->uses('IndexDashboardController');
-    });
+//    Route::namespace('Dashboard')->group(function () {
+//        Route::get('/')->name('dashboard.index')->uses(\App\Http\Livewire\Dashboard\IndexDashboard::class);
+//    });
 
     Route::get('/logout')->name('logout')->uses('Auth\LoginController@logout');
 

@@ -18,7 +18,7 @@ class EnterpriseIndexRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('settings.enterprise.index');
+        return $this->user()->can('settings.enterprises.index');
     }
 
     /**

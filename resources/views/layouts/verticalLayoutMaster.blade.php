@@ -37,6 +37,7 @@
         <div class="container">
           {{-- main page content --}}
           @yield('content')
+
           {{-- right sidebar --}}
           @include('pages.sidebar.right-sidebar')
           @if($configData["isFabButton"] === true)
